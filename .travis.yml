@@ -1,8 +1,5 @@
 language: android
 
-notifications:
-    slack: 20scoopscnx:MHXX5rImwvTFSMK0JiJfa7ur
-
 jdk: oraclejdk8
 
 before_cache:
@@ -15,7 +12,7 @@ cache:
  - $HOME/.gradle/wrapper/
 
 notifications:
-  email: true
+    slack: 20scoopscnx:MHXX5rImwvTFSMK0JiJfa7ur
 
 android:
   components:
