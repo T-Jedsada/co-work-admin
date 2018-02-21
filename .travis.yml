@@ -26,5 +26,4 @@ licenses:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 
-script:
-    - chmod +x ./gradlew clean build
+script:chmod +x ./gradlew clean build
