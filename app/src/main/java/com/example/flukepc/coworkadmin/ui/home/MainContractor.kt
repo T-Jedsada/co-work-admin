@@ -11,6 +11,6 @@ interface MainContractor: BaseContractor.View{
     interface View : BaseContractor.View{
         fun successFormVerify(email : String, password :String)
         fun successLogin(message : String)
-        fun onError(message : String)
+        fun onError(message : Int)
     }
 }

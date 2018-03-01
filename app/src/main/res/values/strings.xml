@@ -3,4 +3,9 @@
     <string name="hint_admin">Email</string>
     <string name="hint_password">Password</string>
     <string name="login">Login</string>
+    <string name="email_invalid">Invalid E-mail</string>
+    <string name="email_format_invalid">Invalid e-mail format</string>
+    <string name="password_longer">Password should not longer than 30 words</string>
+    <string name="password_shorter">Password should not shorter than 6 words</string>
+    <string name="password_invalid">Invalid Password</string>
 </resources>
