@@ -1,14 +1,14 @@
-package com.example.flukepc.co_work_admin.base
+package com.example.flukepc.coworkadmin.base
 
 import io.reactivex.observers.DisposableObserver
 import retrofit2.Response
 
-class BaseSubScribe<T>(private val callback: ResponseWtf<T>) : DisposableObserver<Response<T>>() {
+class BaseSubScribe<T>(private val callback: Response<T>) : DisposableObserver<Response<T>>() {
     override fun onComplete() {
         //TODO i dont need todo this task
     }
 
-    override fun onNext(t: Response<T>) {
+    override fun onNext(t: retrofit2.Response<T>) {
         t.body()?.let { callback.success(it) }
     }
 
@@ -16,7 +16,7 @@ class BaseSubScribe<T>(private val callback: ResponseWtf<T>) : DisposableObserve
         //todo return some error shower maybe toast
     }
 
-    interface ResponseWtf<in T> {
+    interface Response<in T> {
         fun success(t: T)
     }
 }
