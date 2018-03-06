@@ -1,14 +1,19 @@
 package com.example.flukepc.coworkadmin.ui.home
 
 import android.annotation.SuppressLint
+import android.content.SharedPreferences
 import android.widget.Toast
 import com.example.flukepc.coworkadmin.R
 import com.example.flukepc.coworkadmin.base.BaseActivity
 import com.example.flukepc.coworkadmin.di.ApplicationComponent
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 @SuppressLint("Registered")
 class MainActivity : BaseActivity<MainContractor.View,MainPresenter>(),MainContractor.View {
+    @Inject
+    lateinit var session: SharedPreferences
+
     override fun onError(message: Int) {
         Toast.makeText(applicationContext , applicationContext.getString(message) , Toast.LENGTH_LONG).show()
     }
