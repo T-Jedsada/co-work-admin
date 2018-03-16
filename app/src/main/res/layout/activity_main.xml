@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context="com.example.flukepc.coworkadmin.ui.home.MainActivity">
+    tools:context="com.example.flukepc.coworkadmin.ui.main.MainActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -15,22 +15,22 @@
         android:textStyle="bold" />
 
     <EditText
-        android:lines="1"
         android:id="@+id/edtUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="@string/hint_admin" />
+        android:hint="@string/hint_admin"
+        android:lines="1" />
 
     <EditText
-        android:lines="1"
         android:id="@+id/edtPass"
-        android:maxLength="30"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="@string/hint_password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:lines="1"
+        android:maxLength="30" />
 
     <Button
         android:id="@+id/btnSubmit"
@@ -38,5 +38,4 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/login" />
-
 </LinearLayout>

@@ -8,6 +8,6 @@ import retrofit2.http.POST
 interface BaseService {
 
     //todo must be response something wait for update and add real path
-    @POST("something")
+    @POST("admin-login")
     fun verifyLogin(@Body email: String, @Body password: String ): Observable<Response<String>>
 }
