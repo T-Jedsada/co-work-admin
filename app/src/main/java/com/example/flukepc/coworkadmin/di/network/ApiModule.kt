@@ -1,7 +1,7 @@
 package com.example.flukepc.coworkadmin.di.network
 
 import com.example.flukepc.coworkadmin.request.RequestLogin
-import com.example.flukepc.coworkadmin.base.BaseService
+import com.example.flukepc.coworkadmin.base.network.BaseService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

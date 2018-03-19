@@ -1,4 +1,4 @@
-package com.example.flukepc.coworkadmin.base
+package com.example.flukepc.coworkadmin.base.network
 
 class BaseUrl {
     companion object {

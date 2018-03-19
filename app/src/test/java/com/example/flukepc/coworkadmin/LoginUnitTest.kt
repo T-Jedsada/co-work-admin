@@ -1,6 +1,6 @@
 package com.example.flukepc.coworkadmin
 
- import com.example.flukepc.coworkadmin.base.BaseService
+ import com.example.flukepc.coworkadmin.base.network.BaseService
 import com.example.flukepc.coworkadmin.request.RequestLogin
 import com.example.flukepc.coworkadmin.ui.main.MainContractor
 import com.example.flukepc.coworkadmin.ui.main.MainPresenter

@@ -1,6 +1,6 @@
 package com.example.flukepc.coworkadmin.request
 
-import com.example.flukepc.coworkadmin.base.BaseService
+import com.example.flukepc.coworkadmin.base.network.BaseService
 import com.example.flukepc.coworkadmin.base.BaseSubScribe
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

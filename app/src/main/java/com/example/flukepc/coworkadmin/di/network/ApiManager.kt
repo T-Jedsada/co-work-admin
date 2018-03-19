@@ -1,7 +1,7 @@
 package com.example.flukepc.coworkadmin.di.network
 
 import android.app.Application
-import com.example.flukepc.coworkadmin.base.BaseUrl
+import com.example.flukepc.coworkadmin.base.network.BaseUrl
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
