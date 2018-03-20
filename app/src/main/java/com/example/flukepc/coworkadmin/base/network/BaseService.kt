@@ -1,5 +1,7 @@
 package com.example.flukepc.coworkadmin.base.network
 
+import com.example.flukepc.coworkadmin.model.ListCoWork
+import com.example.flukepc.coworkadmin.model.ResponseDataLogin
 import io.reactivex.Observable
 import retrofit2.Response
 import retrofit2.http.*
@@ -9,10 +11,10 @@ interface BaseService {
     //todo must be response something wait for update and add real path
     @FormUrlEncoded
     @POST("admin-login")
-    fun verifyLogin(@Field("email") email: String, @Field("password") password: String ): Observable<Response<String>>
+    fun verifyLogin(@Field("email") email: String, @Field("password") password: String ): Observable<Response<ResponseDataLogin>>
 
     @GET("admin/co-work-list/")
-    fun requestCoWorkList()
+    fun requestCoWorkList():Observable<Response<ListCoWork>>
 
     @FormUrlEncoded
     @POST("admin/show-comment/")

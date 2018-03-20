@@ -1,6 +1,7 @@
 package com.example.flukepc.coworkadmin.ui.main
 
 import com.example.flukepc.coworkadmin.base.BaseContractor
+import com.example.flukepc.coworkadmin.model.DataLogin
 
 interface MainContractor: BaseContractor.View{
     interface Presenter : BaseContractor.Presenter<View> {
@@ -10,7 +11,7 @@ interface MainContractor: BaseContractor.View{
 
     interface View : BaseContractor.View{
         fun successFormVerify(email : String, password :String)
-        fun successLogin(message : String)
+        fun successLogin(data:DataLogin)
         fun onError(message : Int)
     }
 }

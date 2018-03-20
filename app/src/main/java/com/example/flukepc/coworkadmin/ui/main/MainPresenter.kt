@@ -5,15 +5,17 @@ import com.example.flukepc.coworkadmin.base.BaseSubScribe
 import com.example.flukepc.coworkadmin.request.Request
 import com.example.flukepc.coworkadmin.R
 import com.example.flukepc.coworkadmin.emailPattern
+import com.example.flukepc.coworkadmin.model.ResponseDataLogin
 import javax.inject.Inject
 
 //todo Don't forget to change response type
 class MainPresenter @Inject constructor(private val request: Request) : BasePresenter<MainContractor.View>()
         , MainContractor.Presenter
-        , BaseSubScribe.Response<String> {
+        , BaseSubScribe.Response<ResponseDataLogin> {
 
-    override fun success(t: String) {
-        getView()?.successLogin(t)
+    override fun success(t: ResponseDataLogin) {
+        t.data?.let { getView()?.successLogin(it) }
+
     }
 
     override fun validateForm(email: String, password: String) {
