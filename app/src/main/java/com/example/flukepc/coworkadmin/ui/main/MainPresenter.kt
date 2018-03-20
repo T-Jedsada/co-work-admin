@@ -5,10 +5,12 @@ import com.example.flukepc.coworkadmin.base.BaseSubScribe
 import com.example.flukepc.coworkadmin.request.RequestLogin
 import com.example.flukepc.coworkadmin.R
 import com.example.flukepc.coworkadmin.emailPattern
+import com.example.flukepc.coworkadmin.request.RequestDetail
 import javax.inject.Inject
 
 //todo Don't forget to change response type
-class MainPresenter @Inject constructor(private val request: RequestLogin) : BasePresenter<MainContractor.View>()
+class MainPresenter @Inject constructor(private val request: RequestLogin,
+                                        private val requestDetail:RequestDetail) : BasePresenter<MainContractor.View>()
         , MainContractor.Presenter
         , BaseSubScribe.Response<String> {
 
@@ -30,4 +32,11 @@ class MainPresenter @Inject constructor(private val request: RequestLogin) : Bas
     override fun callApi(email: String, password: String) {
         request.requestApiVerifyLogin(email, password, this)
     }
+
+    //TODO Detail
+    override fun callApiDetail(id: String) {
+//        requestDetail.requestDetail(id,this)
+    }
+
+
 }
