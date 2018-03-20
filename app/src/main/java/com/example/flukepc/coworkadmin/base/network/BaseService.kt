@@ -1,8 +1,6 @@
 package com.example.flukepc.coworkadmin.base.network
 
-import com.example.flukepc.coworkadmin.model.ListCoWork
-import com.example.flukepc.coworkadmin.model.ResponseDataLogin
-import com.example.flukepc.coworkadmin.model.ResponseDetail
+import com.example.flukepc.coworkadmin.model.*
 import io.reactivex.Observable
 import retrofit2.Response
 import retrofit2.http.*
@@ -19,19 +17,20 @@ interface BaseService {
 
     @FormUrlEncoded
     @POST("admin/show-comment/")
-    fun requestCommentList(@Field("coworking_id") coWorkingId : String )
+    fun requestCommentList(@Field("id") coWorkingId : String ):Observable<Response<CommentList>>
 
     @FormUrlEncoded
     @POST("admin/approve/")
-    fun sendToConfirmApprove(@Field("coworking_id") coWorkingId : String, @Field("status") status : String )
+    fun sendToConfirmApprove(@Field("co_work_id") coWorkingId : String):Observable<Response<ResponseJudgeComment>>
 
     @FormUrlEncoded
     @POST("admin/judgement-cowork/")
-    fun sendToConfirmReject(@Field("coworking_id") coWorkingId : String, @Field("status") status : String )
+    fun sendToConfirmReject(@Field("co_work_id") coWorkingId : String):Observable<Response<ResponseJudgeComment>>
 
     @FormUrlEncoded
     @POST("admin/judge-comment/")
-    fun sendJudgementComment(@Field("comment_id") commentId : String)
+    fun sendJudgementComment(@Field("id") commentId : String):Observable<Response<ResponseJudgeComment>>
+
 
     @FormUrlEncoded
     @POST("")

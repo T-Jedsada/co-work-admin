@@ -14,42 +14,49 @@ data class CoWorkDetail(val _id: String? = null,
                         val address: String? = null,
                         val provider_id: String? = null,
                         val status: Boolean? = null,
-                        val gellery: ImageGallery? = null) : Parcelable {
-    constructor(source: Parcel) : this(
-            source.readString(),
-            source.readString(),
-            source.readValue(Double::class.java.classLoader) as Double?,
-            source.readValue(Double::class.java.classLoader) as Double?,
-            source.readString(),
-            source.readValue(Int::class.java.classLoader) as Int?,
-            source.readString(),
-            source.readString(),
-            source.readString(),
-            source.readValue(Boolean::class.java.classLoader) as Boolean?,
-            source.readParcelable<ImageGallery>(ImageGallery::class.java.classLoader)
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(_id)
-        writeString(name)
-        writeValue(latitude)
-        writeValue(longitude)
-        writeString(details)
-        writeValue(price_per_hour)
-        writeString(rarting)
-        writeString(address)
-        writeString(provider_id)
-        writeValue(status)
-        writeParcelable(gellery, 0)
+                        val gellery: ImageGallery? = null,
+                        val approve : String?=null):Parcelable {
+    constructor(parcel: Parcel) : this(
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readValue(Double::class.java.classLoader) as? Double,
+            parcel.readValue(Double::class.java.classLoader) as? Double,
+            parcel.readString(),
+            parcel.readValue(Int::class.java.classLoader) as? Int,
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readValue(Boolean::class.java.classLoader) as? Boolean,
+            parcel.readParcelable(ImageGallery::class.java.classLoader),
+            parcel.readString()) {
     }
 
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<CoWorkDetail> = object : Parcelable.Creator<CoWorkDetail> {
-            override fun createFromParcel(source: Parcel): CoWorkDetail = CoWorkDetail(source)
-            override fun newArray(size: Int): Array<CoWorkDetail?> = arrayOfNulls(size)
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(_id)
+        parcel.writeString(name)
+        parcel.writeValue(latitude)
+        parcel.writeValue(longitude)
+        parcel.writeString(details)
+        parcel.writeValue(price_per_hour)
+        parcel.writeString(rarting)
+        parcel.writeString(address)
+        parcel.writeString(provider_id)
+        parcel.writeValue(status)
+        parcel.writeParcelable(gellery, flags)
+        parcel.writeString(approve)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<CoWorkDetail> {
+        override fun createFromParcel(parcel: Parcel): CoWorkDetail {
+            return CoWorkDetail(parcel)
+        }
+
+        override fun newArray(size: Int): Array<CoWorkDetail?> {
+            return arrayOfNulls(size)
         }
     }
 }

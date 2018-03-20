@@ -16,5 +16,4 @@ class CommentPresenter @Inject constructor(private val request: Request) : BaseP
     override fun callListCoWorkApi() {
         request.requestCoWorkList(this)
     }
-
 }

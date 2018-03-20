@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.example.flukepc.coworkadmin.load
 import com.example.flukepc.coworkadmin.model.CoWorkDetail
-import com.example.flukepc.coworkadmin.ui.detail.DetailActivity
+import com.example.flukepc.coworkadmin.ui.comment.CommentActivity
 import kotlinx.android.synthetic.main.item_co_work_confirm.view.*
 
 class CommentHolder (itemView: View?) : RecyclerView.ViewHolder(itemView){
@@ -16,8 +16,8 @@ class CommentHolder (itemView: View?) : RecyclerView.ViewHolder(itemView){
             nameCoWork.text=get.name
             itemView.setOnClickListener {
                 itemView.context.startActivity(Intent(
-                        itemView.context, DetailActivity::class.java
-                ).putExtra(DetailActivity.Key, get))
+                        itemView.context, CommentActivity::class.java
+                ).putExtra("key",get._id))
             }
         }
     }

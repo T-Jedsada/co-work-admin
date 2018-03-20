@@ -1,6 +1,5 @@
 package com.example.flukepc.coworkadmin.ui.detail
 
-import android.util.Log
 import com.example.flukepc.coworkadmin.R
 import com.example.flukepc.coworkadmin.base.BaseActivity
 import com.example.flukepc.coworkadmin.di.ApplicationComponent
