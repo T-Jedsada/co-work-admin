@@ -11,7 +11,7 @@ class  ConfirmPresenter@Inject constructor(private val request: Request) : BaseP
         BaseSubScribe.Response<ResponseJudgeComment>  {
 
     override fun success(t: ResponseJudgeComment) {
-        t.data?.let { getView()?.successApiRegjectComment(it) }
+        t.data?.let { getView()?.successApiRejectComment(it) }
     }
 
     override fun callApiRejectComment(id: String) {

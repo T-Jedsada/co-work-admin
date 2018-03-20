@@ -12,8 +12,13 @@ import com.example.flukepc.coworkadmin.ui.home.HomeActivity
 import kotlinx.android.synthetic.main.activity_confirm.*
 
 class ConfirmActivity : BaseActivity<ConfirmContact.View, ConfirmPresenter>(),ConfirmContact.View {
-    override fun successApiRegjectComment(data: DataCoWorkJudgeComment) {
-        Toast.makeText(this , data.message ,Toast.LENGTH_SHORT).show()
+    override fun successApiRejectComment(data: DataCoWorkJudgeComment) {
+        data.message?.let {
+            Toast.makeText(this , it ,Toast.LENGTH_SHORT).show()
+        }
+        data.error?.let {
+            Toast.makeText(this , it ,Toast.LENGTH_SHORT).show()
+        }
         startActivity(Intent(this,HomeActivity::class.java))
     }
 

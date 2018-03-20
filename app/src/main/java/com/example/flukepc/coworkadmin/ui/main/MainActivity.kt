@@ -15,9 +15,6 @@ import javax.inject.Inject
 @SuppressLint("Registered")
 class MainActivity : BaseActivity<MainContractor.View, MainPresenter>(), MainContractor.View {
 
-    @Inject
-    lateinit var session: SharedPreferences
-
     override fun onError(message: Int) {
         Toast.makeText(applicationContext, applicationContext.getString(message), Toast.LENGTH_LONG).show()
     }

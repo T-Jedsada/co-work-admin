@@ -11,6 +11,6 @@ interface ConfirmContact{
     }
 
     interface View : BaseContractor.View{
-        fun successApiRegjectComment(data: DataCoWorkJudgeComment)
+        fun successApiRejectComment(data: DataCoWorkJudgeComment)
     }
 }
