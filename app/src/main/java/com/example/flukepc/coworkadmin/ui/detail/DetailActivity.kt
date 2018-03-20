@@ -13,5 +13,9 @@ class DetailActivity : BaseActivity<DetailContact.View, DetailPresenter>() {
     override fun doInjection(appComponent: ApplicationComponent) = appComponent.inject(this)
 
     override fun setupView() {
+        setDetail()
+    }
+
+    private fun setDetail() {
     }
 }

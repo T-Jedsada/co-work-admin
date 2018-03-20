@@ -1,41 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
-    tools:context="com.example.flukepc.coworkadmin.ui.main.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+    <com.beardedhen.androidbootstrap.BootstrapCircleThumbnail
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        app:bootstrapBrand="primary"
+        app:hasBorder="true" />
 
-    <EditText
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:layout_marginTop="20dp"
         android:id="@+id/edtUsername"
-        android:layout_width="match_parent"
+        android:layout_below="@id/imageView"
+        android:inputType="textFilter"
+        android:layout_centerHorizontal="true"
+        android:hint="E-mail"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        />
+    <android.support.design.widget.TextInputLayout
+        android:layout_below="@+id/edtUsername"
+        android:id="@+id/re_password_layout_login"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:hint="@string/hint_admin"
-        android:lines="1" />
-
-    <EditText
-        android:id="@+id/edtPass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="@string/hint_password"
-        android:inputType="textPassword"
-        android:lines="1"
-        android:maxLength="30" />
+        android:layout_centerHorizontal="true"
+        app:passwordToggleEnabled="true">
+        <com.beardedhen.androidbootstrap.BootstrapEditText
+            android:inputType="textPassword"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/edtPass"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/edt_Email_Login"
+            android:padding="10dp" />
+    </android.support.design.widget.TextInputLayout>
 
     <Button
+        android:textAllCaps="false"
+        android:layout_marginTop="20dp"
         android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/re_password_layout_login"
+        android:layout_centerHorizontal="true"
         android:text="@string/login" />
-</LinearLayout>
+
+
+
+</RelativeLayout>
