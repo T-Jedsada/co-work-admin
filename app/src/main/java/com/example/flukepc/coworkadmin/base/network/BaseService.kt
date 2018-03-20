@@ -2,6 +2,7 @@ package com.example.flukepc.coworkadmin.base.network
 
 import com.example.flukepc.coworkadmin.model.ListCoWork
 import com.example.flukepc.coworkadmin.model.ResponseDataLogin
+import com.example.flukepc.coworkadmin.model.ResponseDetail
 import io.reactivex.Observable
 import retrofit2.Response
 import retrofit2.http.*
@@ -35,4 +36,12 @@ interface BaseService {
     @FormUrlEncoded
     @POST("")
     fun requestCoWorkDetail(@Field("coworking_id") coWorkingId : String)
+
+    //TODO onCallDetailCoWork
+    @FormUrlEncoded
+    @POST("detail-cowork")
+    fun requestDetailCoWork(@Field("id") id: String?
+    ): Observable<Response<ResponseDetail>>
+
+
 }

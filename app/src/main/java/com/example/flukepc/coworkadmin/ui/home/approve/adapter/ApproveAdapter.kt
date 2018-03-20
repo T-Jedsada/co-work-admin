@@ -12,6 +12,7 @@ class ApproveAdapter(private var something : List<CoWorkDetail>) : RecyclerView.
 
     fun setItem(arr : List<CoWorkDetail>?){
         arr?.let { this.something = arr }
+        notifyDataSetChanged()
     }
 
     override fun getItemViewType(position: Int): Int = R.layout.item_co_work_confirm
