@@ -2,13 +2,13 @@ package com.example.flukepc.coworkadmin.ui.main
 
 import com.example.flukepc.coworkadmin.base.BasePresenter
 import com.example.flukepc.coworkadmin.base.BaseSubScribe
-import com.example.flukepc.coworkadmin.request.RequestLogin
+import com.example.flukepc.coworkadmin.request.Request
 import com.example.flukepc.coworkadmin.R
 import com.example.flukepc.coworkadmin.emailPattern
 import javax.inject.Inject
 
 //todo Don't forget to change response type
-class MainPresenter @Inject constructor(private val request: RequestLogin) : BasePresenter<MainContractor.View>()
+class MainPresenter @Inject constructor(private val request: Request) : BasePresenter<MainContractor.View>()
         , MainContractor.Presenter
         , BaseSubScribe.Response<String> {
 

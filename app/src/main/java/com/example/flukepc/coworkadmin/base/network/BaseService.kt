@@ -11,19 +11,23 @@ interface BaseService {
     @POST("admin-login")
     fun verifyLogin(@Field("email") email: String, @Field("password") password: String ): Observable<Response<String>>
 
-    @GET("")
-    fun requestCoWorkItemData()
+    @GET("admin/co-work-list/")
+    fun requestCoWorkList()
 
     @FormUrlEncoded
-    @POST("")
+    @POST("admin/show-comment/")
     fun requestCommentList(@Field("coworking_id") coWorkingId : String )
 
     @FormUrlEncoded
-    @POST("")
-    fun sendToConfirmApOrEj(@Field("coworking_id") coWorkingId : String, @Field("status") status : String )
+    @POST("admin/approve/")
+    fun sendToConfirmApprove(@Field("coworking_id") coWorkingId : String, @Field("status") status : String )
 
     @FormUrlEncoded
-    @POST("")
+    @POST("admin/judgement-cowork/")
+    fun sendToConfirmReject(@Field("coworking_id") coWorkingId : String, @Field("status") status : String )
+
+    @FormUrlEncoded
+    @POST("admin/judge-comment/")
     fun sendJudgementComment(@Field("comment_id") commentId : String)
 
     @FormUrlEncoded

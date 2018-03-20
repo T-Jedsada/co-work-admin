@@ -5,7 +5,7 @@ import com.example.flukepc.coworkadmin.base.BaseSubScribe
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-open class RequestLogin(private val api: BaseService) {
+open class Request(private val api: BaseService) {
 
     private fun verifyLoginWithApi(email : String , password :String) = api.verifyLogin(email , password)
 

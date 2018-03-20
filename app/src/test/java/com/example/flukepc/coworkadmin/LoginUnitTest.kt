@@ -1,7 +1,7 @@
 package com.example.flukepc.coworkadmin
 
  import com.example.flukepc.coworkadmin.base.network.BaseService
-import com.example.flukepc.coworkadmin.request.RequestLogin
+import com.example.flukepc.coworkadmin.request.Request
 import com.example.flukepc.coworkadmin.ui.main.MainContractor
 import com.example.flukepc.coworkadmin.ui.main.MainPresenter
 import org.junit.Test
@@ -14,7 +14,7 @@ class LoginUnitTest {
     private var loginPresenter: MainPresenter
     @InjectMocks
     private val view = mock(MainContractor.View::class.java)
-    private val request = RequestLogin(api)
+    private val request = Request(api)
     private var mockEmail = "aoi@sora.miyabi"
     private var mockPassword = "missrolol"
 

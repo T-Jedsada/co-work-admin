@@ -1,6 +1,6 @@
 package com.example.flukepc.coworkadmin.di.network
 
-import com.example.flukepc.coworkadmin.request.RequestLogin
+import com.example.flukepc.coworkadmin.request.Request
 import com.example.flukepc.coworkadmin.base.network.BaseService
 import dagger.Module
 import dagger.Provides
@@ -16,5 +16,5 @@ class ApiModule {
 
     @Provides
     @Singleton
-    fun provideGetData(userApi: BaseService): RequestLogin = RequestLogin(userApi)
+    fun provideGetData(userApi: BaseService): Request = Request(userApi)
 }
