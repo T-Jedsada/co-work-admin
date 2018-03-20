@@ -24,7 +24,7 @@ android:
     - extra-android-m2repository
 
 before_install:
-  - yes | sdkmanager "platforms;android-26"
+  - yes | sdkmanager "platforms;android-27"
 
 licenses:
     - 'android-sdk-preview-license-.+'
