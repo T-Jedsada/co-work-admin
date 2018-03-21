@@ -7,28 +7,25 @@ import android.widget.Toast
 import com.example.flukepc.coworkadmin.R
 import com.example.flukepc.coworkadmin.base.BaseActivity
 import com.example.flukepc.coworkadmin.di.ApplicationComponent
+import com.example.flukepc.coworkadmin.model.DataLogin
 import com.example.flukepc.coworkadmin.ui.home.HomeActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 @SuppressLint("Registered")
 class MainActivity : BaseActivity<MainContractor.View, MainPresenter>(), MainContractor.View {
-    @Inject
-    lateinit var session: SharedPreferences
 
     override fun onError(message: Int) {
-
         Toast.makeText(applicationContext, applicationContext.getString(message), Toast.LENGTH_LONG).show()
     }
 
-    override fun successLogin(message: String) {
-        //todo some thing if login success
+    override fun successLogin(data: DataLogin) {
+        startActivity(Intent(this, HomeActivity::class.java))
+        Toast.makeText(applicationContext, "Success BITCH!!!", Toast.LENGTH_LONG).show()
     }
 
     override fun successFormVerify(email: String, password: String) {
-        //presenter.callApi(email , password)
-        startActivity(Intent(this, HomeActivity::class.java))
-        Toast.makeText(applicationContext, "Success BITCH!!!", Toast.LENGTH_LONG).show()
+        presenter.callApi(email , password)
     }
 
     override fun layoutContentView(): Int = R.layout.activity_main
