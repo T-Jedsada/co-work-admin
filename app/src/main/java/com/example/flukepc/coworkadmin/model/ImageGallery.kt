@@ -2,29 +2,19 @@ package com.example.flukepc.coworkadmin.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 
 
-data class ImageGallery(val image_01: String? = null,
-                        val image_02: String? = null,
-                        val image_03: String? = null,
-                        val image_04: String? = null,
-                        val image_05: String? = null) : Parcelable {
+data class ImageGallery(@SerializedName("poster") val poster: String? = null) : Parcelable {
+
     constructor(source: Parcel) : this(
-            source.readString(),
-            source.readString(),
-            source.readString(),
-            source.readString(),
             source.readString()
     )
 
     override fun describeContents() = 0
 
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(image_01)
-        writeString(image_02)
-        writeString(image_03)
-        writeString(image_04)
-        writeString(image_05)
+        writeString(poster)
     }
 
     companion object {

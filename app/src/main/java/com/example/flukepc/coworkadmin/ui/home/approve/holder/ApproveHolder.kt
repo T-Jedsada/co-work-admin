@@ -12,7 +12,7 @@ class ApproveHolder(itemView: View?) : RecyclerView.ViewHolder(itemView){
 
     fun onBind(detail: CoWorkDetail) {
         itemView.apply {
-            tvCoPoster.load(detail.gellery?.image_01)
+            tvCoPoster.load(detail.gallery?.poster)
             nameCoWork.text=detail.name
             status.text= detail.approve.toString()
             itemView.setOnClickListener {
@@ -23,13 +23,13 @@ class ApproveHolder(itemView: View?) : RecyclerView.ViewHolder(itemView){
             btnApprove.setOnClickListener {
                 itemView.context.startActivity(Intent(
                         itemView.context, ConfirmActivity::class.java
-                ).putExtra("approve-co",detail._id))
+                ).putExtra("approve-co",detail.id))
 
             }
             btnEject.setOnClickListener {
                 itemView.context.startActivity(Intent(
                         itemView.context, ConfirmActivity::class.java
-                ).putExtra("reject-co",detail._id))
+                ).putExtra("reject-co",detail.id))
             }
 
         }

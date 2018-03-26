@@ -7,7 +7,7 @@ import com.example.flukepc.coworkadmin.request.Request
 import javax.inject.Inject
 
 class DetailPresenter @Inject constructor(private val request: Request) : BasePresenter<DetailContact.View>(),
-        DetailContact.Presenter, BaseSubScribe.Response<ResponseDetail>  {
+        DetailContact.Presenter, BaseSubScribe.Response<ResponseDetail> {
 
     override fun success(t: ResponseDetail) {
         t.data?.let { getView()?.successDetail(it) }
@@ -15,7 +15,6 @@ class DetailPresenter @Inject constructor(private val request: Request) : BasePr
 
 
     override fun callApi(id: String) {
-        request.requestDetail(id,this)
+        request.requestDetail(id, this)
     }
-
 }

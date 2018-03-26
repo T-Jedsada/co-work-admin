@@ -4,25 +4,13 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-data class CoWorkDetail(val _id: String? = null,
-                        val name: String? = null,
-                        val latitude: Double? = null,
-                        val longitude: Double? = null,
-                        val details: String? = null,
-                        val price_per_hour: Int? = null,
-                        val rarting: String,
-                        val address: String? = null,
-                        val provider_id: String? = null,
-                        val status: Boolean? = null,
-                        val gellery: ImageGallery? = null,
-                        val approve : String?=null):Parcelable {
+data class CoWorkDetail(@SerializedName("id") val id: String? = null,
+                        @SerializedName("name") val name: String? = null,
+                        @SerializedName("address") val address: String? = null,
+                        @SerializedName("status") val status: Boolean? = null,
+                        @SerializedName("gallery") val gallery: ImageGallery? = null,
+                        @SerializedName("approve") val approve: String? = null) : Parcelable {
     constructor(parcel: Parcel) : this(
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readValue(Double::class.java.classLoader) as? Double,
-            parcel.readValue(Double::class.java.classLoader) as? Double,
-            parcel.readString(),
-            parcel.readValue(Int::class.java.classLoader) as? Int,
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
@@ -32,17 +20,11 @@ data class CoWorkDetail(val _id: String? = null,
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(_id)
+        parcel.writeString(id)
         parcel.writeString(name)
-        parcel.writeValue(latitude)
-        parcel.writeValue(longitude)
-        parcel.writeString(details)
-        parcel.writeValue(price_per_hour)
-        parcel.writeString(rarting)
         parcel.writeString(address)
-        parcel.writeString(provider_id)
         parcel.writeValue(status)
-        parcel.writeParcelable(gellery, flags)
+        parcel.writeParcelable(gallery, flags)
         parcel.writeString(approve)
     }
 
@@ -62,4 +44,3 @@ data class CoWorkDetail(val _id: String? = null,
 }
 
 data class ListCoWork(@SerializedName("data") var results: List<CoWorkDetail>? = null)
-

@@ -9,7 +9,8 @@ import com.example.flukepc.coworkadmin.ui.comment.CommentContact
 import com.example.flukepc.coworkadmin.ui.comment.holder.CommentHolder
 import kotlinx.android.synthetic.main.item_comment.view.*
 
-class CommentAdapter(private var something: List<CommentData>, private var view: CommentContact.View) : RecyclerView.Adapter<CommentHolder>() {
+class CommentAdapter(private var something: List<CommentData>, private var view: CommentContact.View)
+    : RecyclerView.Adapter<CommentHolder>() {
 
     fun setItem(arr: List<CommentData>?) {
         arr?.let { this.something = arr }
@@ -18,7 +19,8 @@ class CommentAdapter(private var something: List<CommentData>, private var view:
 
     override fun getItemViewType(position: Int): Int = R.layout.item_comment
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentHolder = CommentHolder(LayoutInflater.from(parent.context).inflate(viewType, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentHolder
+            = CommentHolder(LayoutInflater.from(parent.context).inflate(viewType, parent, false))
 
     override fun getItemCount(): Int = something.size
 

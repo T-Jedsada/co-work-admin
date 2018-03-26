@@ -5,7 +5,7 @@ import com.example.flukepc.coworkadmin.model.DataCoWorkDetail
 
 class DetailContact {
     interface Presenter : BaseContractor.Presenter<View> {
-        fun callApi(id:String)
+        fun callApi(id: String)
     }
 
     interface View : BaseContractor.View {

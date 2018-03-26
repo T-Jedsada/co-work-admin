@@ -3,8 +3,6 @@ package com.example.flukepc.coworkadmin.di
 import com.example.flukepc.coworkadmin.di.network.ApiManager
 import com.example.flukepc.coworkadmin.di.network.ApiModule
 import com.example.flukepc.coworkadmin.ui.comment.CommentActivity
-import com.example.flukepc.coworkadmin.ui.comment.adapter.CommentAdapter
-import com.example.flukepc.coworkadmin.ui.confirm.ConfirmActivity
 import com.example.flukepc.coworkadmin.ui.detail.DetailActivity
 import com.example.flukepc.coworkadmin.ui.home.HomeActivity
 import com.example.flukepc.coworkadmin.ui.home.approve.ApproveFragment
@@ -22,5 +20,4 @@ interface ApplicationComponent {
     fun inject(commentFragment: CommentFragment)
     fun inject(commentActivity: CommentActivity)
     fun inject(detailActivity: DetailActivity)
-    fun inject(confirmActivity: ConfirmActivity)
 }

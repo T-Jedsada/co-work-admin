@@ -12,12 +12,12 @@ class CommentHolder (itemView: View?) : RecyclerView.ViewHolder(itemView){
 
     fun onBind(get: CoWorkDetail) {
         itemView.apply {
-            tvCoPoster.load(get.gellery?.image_01)
+            tvCoPoster.load(get.gallery?.poster)
             nameCoWork.text=get.name
             itemView.setOnClickListener {
                 itemView.context.startActivity(Intent(
                         itemView.context, CommentActivity::class.java
-                ).putExtra("key",get._id))
+                ).putExtra("key",get.id))
             }
         }
     }
