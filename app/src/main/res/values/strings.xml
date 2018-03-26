@@ -16,4 +16,11 @@
     <string name="field_book">Book :</string>
     <string name="field_comment">Comment :</string>
     <string name="txt_poster_desc">poster</string>
+    <string name="txt_session">email</string>
+    <string name="txt_warn">คำเตือน</string>
+    <string name="txt_pls_wait">กรุณารอซักครู่</string>
+    <string name="txt_confirm_dialog">ใช่</string>
+    <string name="txt_reject_dialog">ยกเลิก</string>
+    <string name="txt_interupt">เกิดข้อผิดพลาดบางประการ</string>
+    <string name="txt_for_sure">ต้องการดำเนินการต่อหรือไม่</string>
 </resources>

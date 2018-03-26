@@ -26,7 +26,6 @@ class CommentFragment : BaseFragment<CommentContact.View, CommentPresenter>(), C
     override fun initFunction() {
     }
 
-
     override fun successCallback(listCoWork: ListCoWork?) {
         approveAdapter.setItem(listCoWork?.results)
     }

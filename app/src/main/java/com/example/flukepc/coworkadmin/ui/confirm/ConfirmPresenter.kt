@@ -15,15 +15,15 @@ class  ConfirmPresenter@Inject constructor(private val request: Request) : BaseP
     }
 
     override fun callApiRejectComment(id: String) {
-        request.requestConfirm(id, this)
+        //request.requestDeleteComment(id, this)
     }
 
     override fun callApiRejectCoWork(id: String) {
-        request.requestConfirmReject(id, this)
+       // request.requestConfirmReject(id, this)
     }
 
     override fun callApiApproveCoWork(id: String) {
-        request.requestConfirmApprove(id, this)
+       // request.requestConfirmApprove(id, this)
     }
 
 }

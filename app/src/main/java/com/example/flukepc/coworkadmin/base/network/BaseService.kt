@@ -31,16 +31,9 @@ interface BaseService {
     @POST("admin/judge-comment/")
     fun sendJudgementComment(@Field("id") commentId : String):Observable<Response<ResponseJudgeComment>>
 
-
-    @FormUrlEncoded
-    @POST("")
-    fun requestCoWorkDetail(@Field("coworking_id") coWorkingId : String)
-
     //TODO onCallDetailCoWork
     @FormUrlEncoded
     @POST("detail-cowork")
     fun requestDetailCoWork(@Field("id") id: String?
     ): Observable<Response<ResponseDetail>>
-
-
 }

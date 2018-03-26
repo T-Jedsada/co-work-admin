@@ -13,7 +13,7 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:text="noconfirm"
+        android:text="cancel"
         android:id="@+id/noConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

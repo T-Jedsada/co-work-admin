@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.flukepc.coworkadmin.R
 import com.example.flukepc.coworkadmin.model.CommentData
+import com.example.flukepc.coworkadmin.ui.comment.CommentContact
 import com.example.flukepc.coworkadmin.ui.comment.holder.CommentHolder
+import kotlinx.android.synthetic.main.item_comment.view.*
 
-class CommentAdapter(private var something: List<CommentData>) : RecyclerView.Adapter<CommentHolder>() {
+class CommentAdapter(private var something: List<CommentData>, private var view: CommentContact.View) : RecyclerView.Adapter<CommentHolder>() {
 
     fun setItem(arr: List<CommentData>?) {
         arr?.let { this.something = arr }
@@ -16,10 +18,14 @@ class CommentAdapter(private var something: List<CommentData>) : RecyclerView.Ad
 
     override fun getItemViewType(position: Int): Int = R.layout.item_comment
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentHolder
-            = CommentHolder(LayoutInflater.from(parent.context).inflate(viewType, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentHolder = CommentHolder(LayoutInflater.from(parent.context).inflate(viewType, parent, false))
 
     override fun getItemCount(): Int = something.size
 
-    override fun onBindViewHolder(holder: CommentHolder, position: Int) =holder.onBind(something.get(position))
+    override fun onBindViewHolder(holder: CommentHolder, position: Int) {
+        holder.onBind(something[position])
+        holder.itemView.btnDelete.setOnClickListener {
+            view.onCommentDelete(something[position].id)
+        }
+    }
 }

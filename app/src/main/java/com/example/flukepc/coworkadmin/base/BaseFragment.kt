@@ -1,5 +1,8 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.flukepc.coworkadmin.base
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
@@ -10,10 +13,13 @@ import com.example.flukepc.coworkadmin.App
 import com.example.flukepc.coworkadmin.di.ApplicationComponent
 import javax.inject.Inject
 
+@Suppress("DEPRECATION")
 abstract class BaseFragment<V : BaseContractor.View, P : BaseContractor.Presenter<V>> :
         BaseContractor.View, Fragment() {
     @Inject
     protected lateinit var presenter: P
+
+    private lateinit var progressDialog: ProgressDialog
 
     @LayoutRes
     protected abstract fun layoutInflate(): Int
@@ -40,4 +46,13 @@ abstract class BaseFragment<V : BaseContractor.View, P : BaseContractor.Presente
     protected abstract fun setAdapter()
 
     protected abstract fun initFunction()
+
+    protected fun loadDialog(){
+        progressDialog = ProgressDialog.show(context,"Loading","Loading Content...",false,false)
+        progressDialog.show()
+    }
+
+    protected fun loadingSuccess(){
+        progressDialog.dismiss()
+    }
 }
