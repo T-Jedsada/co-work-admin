@@ -9,6 +9,13 @@ import javax.inject.Inject
 
 class ApprovePresenter @Inject constructor(private val request: Request): BasePresenter<ApproveContact.View>()
         , ApproveContact.Presenter ,BaseSubScribe.Response<ListCoWork>{
+    override fun onApprove() {
+
+    }
+
+    override fun onReject() {
+
+    }
 
     override fun success(t: ListCoWork) {
         getView()?.successCallback(t)

@@ -18,10 +18,6 @@ class DetailActivity : BaseActivity<DetailContact.View, DetailPresenter>(), Deta
 
     override fun checkSession() {}
 
-    companion object {
-        const val Key = "KEY_DATA"
-    }
-
     override fun layoutContentView(): Int = R.layout.activity_detail
 
     override fun doInjection(appComponent: ApplicationComponent) = appComponent.inject(this)
@@ -33,11 +29,14 @@ class DetailActivity : BaseActivity<DetailContact.View, DetailPresenter>(), Deta
         container.load(dataCoWork.gallery?.poster)
         status.text = (getString(R.string.txt_status) + dataCoWork.status.toString())
         dataCoWork.id?.let { presenter.callApi(it) }
-
     }
 
     override fun successDetail(data: List<DataCoWorkDetail>) {
         price.text = (getString(R.string.txt_price) + data[0].price_per_hour + getString(R.string.txt_bath))
         content.text = (getString(R.string.txt_content) + data[0].details)
+    }
+
+    companion object {
+        const val Key = "KEY_DATA"
     }
 }

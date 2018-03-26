@@ -7,7 +7,5 @@ class HomeContact {
         fun callListCoWorkApi()
     }
 
-    interface View : BaseContractor.View {
-        fun successlistCoWorkApi()
-    }
+    interface View : BaseContractor.View
 }
