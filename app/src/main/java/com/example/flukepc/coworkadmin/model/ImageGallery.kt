@@ -5,7 +5,7 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 
-data class ImageGallery(@SerializedName("poster") val poster: String? = null) : Parcelable {
+data class ImageGallery(@SerializedName("image_01") val poster: String? = null) : Parcelable {
 
     constructor(source: Parcel) : this(
             source.readString()

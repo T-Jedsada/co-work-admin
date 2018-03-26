@@ -10,21 +10,19 @@ import com.example.flukepc.coworkadmin.ui.comment.adapter.CommentAdapter
 import kotlinx.android.synthetic.main.activity_comment.*
 
 class CommentActivity : BaseActivity<CommentContact.View, CommentPresenter>(), CommentContact.View {
+    private val commentAdapter: CommentAdapter by lazy { CommentAdapter(arrayListOf(), this) }
 
-    var coWorkId: String? = null
-    var commentId: String? = null
+    private var coWorkId: String? = null
+    private var commentId: String? = null
 
-    override fun isDialogConfirm() {
-        presenter.isDeleteComment(commentId)
-    }
+    override fun isDialogConfirm() = presenter.isDeleteComment(commentId)
 
     override fun onDeleteSuccess(message: String?) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         coWorkId?.let {
             loadDialog()
             presenter.callCommentApi(it)
-        }
-                ?: Toast.makeText(this, getString(R.string.txt_interupt), Toast.LENGTH_SHORT).show()
+        } ?: Toast.makeText(this, getString(R.string.txt_interupt), Toast.LENGTH_SHORT).show()
     }
 
     override fun onCommentDelete(id: String?) {
@@ -37,8 +35,6 @@ class CommentActivity : BaseActivity<CommentContact.View, CommentPresenter>(), C
     override fun logOut() {}
 
     override fun checkSession() {}
-
-    private val commentAdapter: CommentAdapter by lazy { CommentAdapter(arrayListOf(), this) }
 
     override fun onCallCommentListSuccess(listComment: CommentList?) {
         loadingSuccess()
@@ -59,6 +55,5 @@ class CommentActivity : BaseActivity<CommentContact.View, CommentPresenter>(), C
             loadDialog()
             presenter.callCommentApi(it)
         }
-
     }
 }

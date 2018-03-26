@@ -16,8 +16,7 @@ class CommentAdapter(private var something: List<CoWorkDetail>) : RecyclerView.A
 
     override fun getItemViewType(position: Int): Int = R.layout.item_co_work
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentHolder
-            = CommentHolder(LayoutInflater.from(parent.context).inflate(viewType, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentHolder = CommentHolder(LayoutInflater.from(parent.context).inflate(viewType, parent, false))
 
     override fun getItemCount(): Int = something.size
 

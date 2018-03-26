@@ -7,7 +7,7 @@ import com.example.flukepc.coworkadmin.request.Request
 import javax.inject.Inject
 
 class CommentPresenter @Inject constructor(private val request: Request) : BasePresenter<CommentContact.View>(),
-        CommentContact.Presenter, BaseSubScribe.Response<ListCoWork>{
+        CommentContact.Presenter, BaseSubScribe.Response<ListCoWork> {
 
     override fun success(t: ListCoWork) {
         getView()?.successCallback(t)

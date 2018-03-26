@@ -6,31 +6,17 @@ import com.example.flukepc.coworkadmin.di.ApplicationComponent
 
 @SuppressLint("Registered")
 class ThemeActivity : BaseActivity<ThemeContact.View , ThemePresenter>(){
-    override fun isDialogConfirm() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun isDialogConfirm() {}
 
-    override fun logIn(email: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun logIn(email: String?) {}
 
-    override fun logOut() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun logOut() {}
 
-    override fun checkSession() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun checkSession() {}
 
-    override fun layoutContentView(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun layoutContentView(): Int {return 0}
 
-    override fun doInjection(appComponent: ApplicationComponent) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun doInjection(appComponent: ApplicationComponent) {}
 
-    override fun setupView() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun setupView() {}
 }

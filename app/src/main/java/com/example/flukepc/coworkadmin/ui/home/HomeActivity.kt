@@ -13,9 +13,8 @@ import javax.inject.Inject
 
 @SuppressLint("CommitPrefEdits")
 class HomeActivity : BaseActivity<HomeContact.View, HomePresenter>() {
-    override fun isDialogConfirm() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+
+    override fun isDialogConfirm() {}
 
     @Inject
     lateinit var sharedPreferences: SharedPreferences

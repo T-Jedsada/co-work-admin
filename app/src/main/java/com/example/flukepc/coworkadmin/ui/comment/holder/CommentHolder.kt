@@ -6,7 +6,6 @@ import com.example.flukepc.coworkadmin.model.CommentData
 import kotlinx.android.synthetic.main.item_comment.view.*
 
 class CommentHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
-
     fun onBind(get: CommentData) {
         itemView.apply {
             commentMessage.text = get.comment

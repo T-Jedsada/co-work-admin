@@ -55,8 +55,6 @@ class ApiManager {
                     val original = chain.request()
                     val originalHttpUrl = original.url()
                     val url = originalHttpUrl.newBuilder()
-                            //todo insert some api_key here
-                            .addQueryParameter("api_key", "")
                             .build()
                     val requestBuilder = original.newBuilder()
                             .url(url)

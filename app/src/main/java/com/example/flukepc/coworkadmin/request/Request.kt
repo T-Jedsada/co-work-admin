@@ -12,6 +12,10 @@ open class Request(private val api: BaseService) {
         fun onDeleteCommentSuccess(callBack: ResponseJudgeComment)
     }
 
+    interface JudgementCoWork {
+        fun onActionSuccess(callback: ResponseJudgeComment?)
+    }
+
     private fun verifyLoginWithApi(email: String, password: String) = api.verifyLogin(email, password)
     private fun selectListCoWork() = api.requestCoWorkList()
     private fun selectDetail(id: String) = api.requestDetailCoWork(id)
@@ -42,20 +46,28 @@ open class Request(private val api: BaseService) {
 
     fun requestDeleteComment(id: String, callback: CommentListener) {
         deleteComment(id).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(BaseSubScribe(object : BaseSubScribe.Response<ResponseJudgeComment>{
+                .subscribe(BaseSubScribe(object : BaseSubScribe.Response<ResponseJudgeComment> {
                     override fun success(t: ResponseJudgeComment) {
                         callback.onDeleteCommentSuccess(t)
                     }
                 }))
     }
 
-    fun requestConfirmReject(id: String, callback: BaseSubScribe.Response<ResponseJudgeComment>) {
+    fun requestConfirmReject(id: String, callback: JudgementCoWork) {
         selectConfirmReject(id).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(BaseSubScribe(callback))
+                .subscribe(BaseSubScribe(object : BaseSubScribe.Response<ResponseJudgeComment> {
+                    override fun success(t: ResponseJudgeComment) {
+                        callback.onActionSuccess(t)
+                    }
+                }))
     }
 
-    fun requestConfirmApprove(id: String, callback: BaseSubScribe.Response<ResponseJudgeComment>) {
+    fun requestConfirmApprove(id: String, callback: JudgementCoWork) {
         selectConfirmApprove(id).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(BaseSubScribe(callback))
+                .subscribe(BaseSubScribe(object : BaseSubScribe.Response<ResponseJudgeComment> {
+                    override fun success(t: ResponseJudgeComment) {
+                        callback.onActionSuccess(t)
+                    }
+                }))
     }
 }

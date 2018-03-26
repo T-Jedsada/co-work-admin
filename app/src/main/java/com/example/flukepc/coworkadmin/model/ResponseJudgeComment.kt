@@ -7,4 +7,3 @@ data class ResponseJudgeComment(@SerializedName("success") val noticeMessage: St
 
 data class DataCoWorkJudgeComment(@SerializedName("message") val message: String?
                                   ,@SerializedName("error") val error: String?)
-

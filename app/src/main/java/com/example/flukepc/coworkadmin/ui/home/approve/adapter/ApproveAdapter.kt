@@ -6,10 +6,12 @@ import android.view.ViewGroup
 import com.example.flukepc.coworkadmin.R
 import com.example.flukepc.coworkadmin.model.CoWorkDetail
 import com.example.flukepc.coworkadmin.ui.home.approve.ApproveContact
+import com.example.flukepc.coworkadmin.ui.home.approve.ApproveFragment
 import com.example.flukepc.coworkadmin.ui.home.approve.holder.ApproveHolder
+import kotlinx.android.synthetic.main.item_co_work_confirm.view.*
 
 @Suppress("CAST_NEVER_SUCCEEDS")
-class ApproveAdapter(private var something: List<CoWorkDetail>, private val context: ApproveContact.View?)
+class ApproveAdapter(private var something: List<CoWorkDetail>, private val view: ApproveContact.View?)
     : RecyclerView.Adapter<ApproveHolder>() {
 
     fun setItem(arr: List<CoWorkDetail>?) {
@@ -23,5 +25,11 @@ class ApproveAdapter(private var something: List<CoWorkDetail>, private val cont
 
     override fun getItemCount(): Int = something.size
 
-    override fun onBindViewHolder(holder: ApproveHolder, position: Int) = holder.onBind(something.get(position))
+    override fun onBindViewHolder(holder: ApproveHolder, position: Int) {
+        holder.onBind(something[position])
+        holder.itemView.apply {
+            btnEject.setOnClickListener { view?.onJudgeAction(something[position].id, ApproveFragment.REJECT_KEY_OPTION) }
+            btnApprove.setOnClickListener { view?.onJudgeAction(something[position].id, ApproveFragment.APPROVE_KEY_OPTION) }
+        }
+    }
 }

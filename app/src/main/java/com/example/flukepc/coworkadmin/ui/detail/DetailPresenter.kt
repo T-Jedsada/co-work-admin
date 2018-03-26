@@ -13,7 +13,6 @@ class DetailPresenter @Inject constructor(private val request: Request) : BasePr
         t.data?.let { getView()?.successDetail(it) }
     }
 
-
     override fun callApi(id: String) {
         request.requestDetail(id, this)
     }

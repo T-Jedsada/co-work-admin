@@ -11,11 +11,11 @@ class CommentPresenter @Inject constructor(private val request: Request) : BaseP
         , CommentContact.Presenter, BaseSubScribe.Response<CommentList>, Request.CommentListener {
 
     override fun onDeleteCommentSuccess(callBack: ResponseJudgeComment) {
-        callBack.data?.let { getView()?.onDeleteSuccess(it.message)  }
+        callBack.data?.let { getView()?.onDeleteSuccess(it.message) }
     }
 
     override fun isDeleteComment(id: String?) {
-        id?.let { request.requestDeleteComment(it,this) }
+        id?.let { request.requestDeleteComment(it, this) }
     }
 
     override fun callCommentApi(coWorkingId: String) = request.requestCommentList(coWorkingId, this)
