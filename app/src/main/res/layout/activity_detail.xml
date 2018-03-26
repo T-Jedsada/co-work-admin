@@ -10,15 +10,13 @@
         android:layout_height="wrap_content"
         tools:context="com.example.msigl62.coworkandroiduset.ui.detail.DetailCoWorkPoppularActivity">
 
-
         <ImageView
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="180dp"
+            android:background="@color/cardview_dark_background"
             android:scaleType="fitXY"
-            android:background="@color/cardview_dark_background" />
-
-
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/nameCoWorking"

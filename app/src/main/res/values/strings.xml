@@ -15,4 +15,5 @@
     <string name="status_field">status :</string>
     <string name="field_book">Book :</string>
     <string name="field_comment">Comment :</string>
+    <string name="txt_poster_desc">poster</string>
 </resources>

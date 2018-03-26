@@ -3,24 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="10dp">
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/tvCoPoster"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:layout_weight="1"
-        tools:ignore="ContentDescription" />
-
-    <TextView
-        android:id="@+id/nameCoWork"
-        android:layout_weight="1.5"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        tools:text="Test Some Where Co Work" />
+        android:divider="?android:dividerVertical"
+        android:dividerPadding="@dimen/divider_padding"
+        android:minHeight="?android:listPreferredItemHeight"
+        android:orientation="horizontal"
+        android:showDividers="middle">
+
+        <ImageView
+            android:id="@+id/tvCoPoster"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/txt_poster_desc"
+            android:paddingEnd="?android:listPreferredItemPaddingEnd"
+            android:paddingStart="?android:listPreferredItemPaddingStart" />
+
+        <TextView
+            android:id="@+id/nameCoWork"
+            style="?android:textAppearanceListItemSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            tools:text="Test Some Where Co Work" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGray"
+        tools:ignore="RtlSymmetry" />
 </LinearLayout>
