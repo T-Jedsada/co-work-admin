@@ -1,5 +1,6 @@
 package com.android.cowork.admin.ui.comment
 
+import com.android.cowork.admin.R
 import com.android.cowork.admin.base.BasePresenter
 import com.android.cowork.admin.base.BaseSubScribe
 import com.android.cowork.admin.model.CommentList
@@ -11,7 +12,10 @@ class CommentPresenter @Inject constructor(private val request: Request) : BaseP
         , CommentContact.Presenter, BaseSubScribe.Response<CommentList>, Request.CommentListener {
 
     override fun onDeleteCommentSuccess(callBack: ResponseJudgeComment) {
-        callBack.data?.let { getView()?.onDeleteSuccess(it.message) }
+        when (callBack.noticeMessage) {
+            TRUE -> callBack.data?.let { getView()?.onDeleteSuccess(it.message) }
+            FALSE -> getView()?.onError(R.string.txt_api_error)
+        }
     }
 
     override fun isDeleteComment(id: String?) {
@@ -22,5 +26,10 @@ class CommentPresenter @Inject constructor(private val request: Request) : BaseP
 
     override fun success(t: CommentList) {
         getView()?.onCallCommentListSuccess(t)
+    }
+
+    companion object {
+        const val TRUE = "true"
+        const val FALSE = "false"
     }
 }

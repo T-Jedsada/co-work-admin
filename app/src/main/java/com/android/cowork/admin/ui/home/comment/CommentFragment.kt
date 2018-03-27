@@ -2,6 +2,7 @@ package com.android.cowork.admin.ui.home.comment
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
+import android.widget.Toast
 import com.android.cowork.admin.R
 import com.android.cowork.admin.base.BaseFragment
 import com.android.cowork.admin.di.ApplicationComponent
@@ -12,6 +13,10 @@ import kotlinx.android.synthetic.main.fragment_list_theme.*
 class CommentFragment : BaseFragment<CommentContact.View, CommentPresenter>(), CommentContact.View {
 
     private val approveAdapter: CommentAdapter by lazy { CommentAdapter(arrayListOf()) }
+
+    override fun onError(message: Int) {
+        Toast.makeText(context, getString(message), Toast.LENGTH_SHORT).show()
+    }
 
     override fun isDialogConfirm(id: String?, option: String?) {}
 

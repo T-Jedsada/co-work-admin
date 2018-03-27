@@ -10,10 +10,14 @@ import com.android.cowork.admin.ui.comment.adapter.CommentAdapter
 import kotlinx.android.synthetic.main.activity_comment.*
 
 class CommentActivity : BaseActivity<CommentContact.View, CommentPresenter>(), CommentContact.View {
-
     private val commentAdapter: CommentAdapter by lazy { CommentAdapter(arrayListOf(), this) }
+
     private var coWorkId: String? = null
     private var commentId: String? = null
+
+    override fun onError(message: Int) {
+        Toast.makeText(this, getString(message), Toast.LENGTH_SHORT).show()
+    }
 
     override fun isDialogConfirm() {
         loadDialog()

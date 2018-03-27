@@ -15,5 +15,6 @@ interface ApproveContact {
         fun successCallback(listCoWork: ListCoWork?)
         fun onJudgeAction(id: String?, option: String?)
         fun isJudgeSuccess(message: String?)
+        fun onError(message: Int)
     }
 }

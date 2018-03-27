@@ -11,5 +11,6 @@ interface CommentContact {
 
     interface View : BaseContractor.View {
         fun successCallback(listCoWork: ListCoWork?)
+        fun onError(message: Int)
     }
 }

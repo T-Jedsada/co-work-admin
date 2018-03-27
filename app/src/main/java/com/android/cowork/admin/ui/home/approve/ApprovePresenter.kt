@@ -1,5 +1,6 @@
 package com.android.cowork.admin.ui.home.approve
 
+import com.android.cowork.admin.R
 import com.android.cowork.admin.base.BasePresenter
 import com.android.cowork.admin.base.BaseSubScribe
 import com.android.cowork.admin.model.ListCoWork
@@ -11,7 +12,10 @@ class ApprovePresenter @Inject constructor(private val request: Request) : BaseP
         , ApproveContact.Presenter, BaseSubScribe.Response<ListCoWork>, Request.JudgementCoWork {
 
     override fun onActionSuccess(callback: ResponseJudgeComment?) {
-        getView()?.isJudgeSuccess(callback?.data?.message)
+        when (callback?.noticeMessage) {
+            TRUE -> getView()?.isJudgeSuccess(callback.data?.message)
+            FALSE -> getView()?.onError(R.string.txt_api_error)
+        }
     }
 
     override fun onApprove(id: String?) {
@@ -28,5 +32,10 @@ class ApprovePresenter @Inject constructor(private val request: Request) : BaseP
 
     override fun callListCoWorkApi() {
         request.requestCoWorkList(this)
+    }
+
+    companion object {
+        const val TRUE = "true"
+        const val FALSE = "false"
     }
 }

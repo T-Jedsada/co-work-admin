@@ -14,7 +14,8 @@ class CommentAdapter(private var something: List<CommentData>, private var view:
 
     override fun getItemViewType(position: Int): Int = R.layout.item_comment
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentHolder = CommentHolder(LayoutInflater.from(parent.context).inflate(viewType, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentHolder
+            = CommentHolder(LayoutInflater.from(parent.context).inflate(viewType, parent, false))
 
     override fun getItemCount(): Int = something.size
 

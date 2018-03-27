@@ -1,5 +1,6 @@
 package com.android.cowork.admin.ui.home.comment
 
+import com.android.cowork.admin.R
 import com.android.cowork.admin.base.BasePresenter
 import com.android.cowork.admin.base.BaseSubScribe
 import com.android.cowork.admin.model.ListCoWork
@@ -10,7 +11,10 @@ class CommentPresenter @Inject constructor(private val request: Request) : BaseP
         CommentContact.Presenter, BaseSubScribe.Response<ListCoWork> {
 
     override fun success(t: ListCoWork) {
-        getView()?.successCallback(t)
+        when (t.results?.size != 0) {
+            true -> getView()?.successCallback(t)
+            false -> getView()?.onError(R.string.txt_api_error)
+        }
     }
 
     override fun callListCoWorkApi() {

@@ -2,6 +2,7 @@ package com.android.cowork.admin.ui.home.approve
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
+import android.widget.Toast
 import com.android.cowork.admin.R
 import com.android.cowork.admin.base.BaseFragment
 import com.android.cowork.admin.di.ApplicationComponent
@@ -13,6 +14,10 @@ import kotlinx.android.synthetic.main.fragment_list_theme.*
 class ApproveFragment : BaseFragment<ApproveContact.View, ApprovePresenter>(), ApproveContact.View {
 
     private val approveAdapter: ApproveAdapter by lazy { ApproveAdapter(arrayListOf(), this) }
+
+    override fun onError(message: Int) {
+        Toast.makeText(context, getString(message), Toast.LENGTH_SHORT).show()
+    }
 
     override fun isDialogConfirm(id: String?, option: String?) {
         loadDialog()
