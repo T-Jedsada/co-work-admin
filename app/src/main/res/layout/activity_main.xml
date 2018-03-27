@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context="com.example.flukepc.coworkadmin.ui.main.MainActivity">
+    tools:context="com.android.cowork.admin.ui.main.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
