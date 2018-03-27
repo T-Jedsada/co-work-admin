@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.fragment_list_theme.*
 
 @Suppress("UNUSED_EXPRESSION")
 class ApproveFragment : BaseFragment<ApproveContact.View, ApprovePresenter>(), ApproveContact.View {
+
     private val approveAdapter: ApproveAdapter by lazy { ApproveAdapter(arrayListOf(), this) }
 
     override fun isDialogConfirm(id: String?, option: String?) {

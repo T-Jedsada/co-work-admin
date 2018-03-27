@@ -14,10 +14,9 @@ import javax.inject.Inject
 
 @SuppressLint("Registered", "CommitPrefEdits")
 class MainActivity : BaseActivity<MainContractor.View, MainPresenter>(), MainContractor.View {
+
     @Inject
     lateinit var sharedPreferences: SharedPreferences
-
-    private val session: SharedPreferences.Editor? by lazy { sharedPreferences.edit() }
 
     override fun isDialogConfirm() {}
 
@@ -56,15 +55,10 @@ class MainActivity : BaseActivity<MainContractor.View, MainPresenter>(), MainCon
         }
     }
 
-    override fun logOut() {
-        session?.clear()
-        session?.putBoolean(MainActivity.KEY_CHECK_LOGIN, false)
-    }
+    override fun logOut() {}
 
     override fun logIn(email: String?) {
-        session?.putString(MainActivity.KEY_SESSION_EMAIL, email)
-        session?.putBoolean(MainActivity.KEY_CHECK_LOGIN, true)
-        session?.commit()
+        session.logIn(email)
     }
 
     companion object {

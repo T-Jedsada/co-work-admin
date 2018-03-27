@@ -4,6 +4,7 @@ import com.example.flukepc.coworkadmin.base.BaseContractor
 import com.example.flukepc.coworkadmin.model.DataCoWorkDetail
 
 class DetailContact {
+
     interface Presenter : BaseContractor.Presenter<View> {
         fun callApi(id: String)
     }

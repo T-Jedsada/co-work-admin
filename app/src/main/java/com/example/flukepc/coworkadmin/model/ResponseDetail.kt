@@ -2,8 +2,8 @@ package com.example.flukepc.coworkadmin.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseDetail(@SerializedName("success") val noticeMessage: String?
-                          , @SerializedName("data") val data: List<DataCoWorkDetail>?)
+data class ResponseDetail(@SerializedName("success") val noticeMessage: String?,
+                          @SerializedName("data") val data: List<DataCoWorkDetail>?)
 
 data class DataCoWorkDetail(@SerializedName("name") val name: String?,
                             @SerializedName("details") val details: String?,

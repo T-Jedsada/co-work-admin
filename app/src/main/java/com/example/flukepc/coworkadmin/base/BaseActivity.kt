@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity
 import com.example.flukepc.coworkadmin.App
 import com.example.flukepc.coworkadmin.R
 import com.example.flukepc.coworkadmin.di.ApplicationComponent
+import com.example.flukepc.coworkadmin.util.Session
 import javax.inject.Inject
 
 @Suppress("DEPRECATION")
@@ -20,6 +21,9 @@ abstract class BaseActivity<V : BaseContractor.View, P : BaseContractor.Presente
 
     @Inject
     protected lateinit var presenter: P
+
+    @Inject
+    protected lateinit var session: Session
 
     private lateinit var progressDialog: ProgressDialog
 

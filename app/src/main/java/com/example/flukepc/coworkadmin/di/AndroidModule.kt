@@ -10,6 +10,7 @@ import javax.inject.Singleton
 
 @Module
 class AndroidModule(private var mApplication: App) {
+
     @Provides
     @Singleton
     fun provideApplication(): Application = mApplication
@@ -20,5 +21,5 @@ class AndroidModule(private var mApplication: App) {
 
     @Provides
     @Singleton
-    fun provideSharePreference():SharedPreferences = mApplication.getSharedPreferences("admin",Context.MODE_PRIVATE)
+    fun provideSharePreference(): SharedPreferences = mApplication.getSharedPreferences("admin", Context.MODE_PRIVATE)
 }

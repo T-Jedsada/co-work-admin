@@ -28,4 +28,6 @@
     <string name="txt_price">price:</string>
     <string name="txt_content">content:</string>
     <string name="txt_bath">Bath</string>
+    <string name="txt_api_error">Failed to connect with api.</string>
+    <string name="txt_confirm_logout">คุณต้องการออกจากระบบไช่หรือไม่</string>
 </resources>

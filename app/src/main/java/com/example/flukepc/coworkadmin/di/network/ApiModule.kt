@@ -9,6 +9,7 @@ import javax.inject.Singleton
 
 @Module
 class ApiModule {
+
     @Provides
     @Singleton
     fun provideUserApi(retrofit: Retrofit): BaseService = retrofit.create(BaseService::class.java)

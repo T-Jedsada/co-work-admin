@@ -12,9 +12,6 @@ import com.example.flukepc.coworkadmin.di.network.ApiModule
 
 @SuppressLint("Registered")
 class App : Application() {
-    companion object {
-        lateinit var appComponent: ApplicationComponent
-    }
 
     override fun onCreate() {
         super.onCreate()
@@ -23,5 +20,9 @@ class App : Application() {
                 .apiModule(ApiModule())
                 .androidModule(AndroidModule(this))
                 .build()
+    }
+
+    companion object {
+        lateinit var appComponent: ApplicationComponent
     }
 }

@@ -10,6 +10,7 @@ data class CoWorkDetail(@SerializedName("_id") val id: String? = null,
                         @SerializedName("status") val status: Boolean? = null,
                         @SerializedName("gellery") val gallery: ImageGallery? = null,
                         @SerializedName("approve") val approve: String? = null) : Parcelable {
+
     constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readString(),

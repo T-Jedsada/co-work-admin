@@ -18,6 +18,7 @@ import javax.inject.Inject
 @Suppress("DEPRECATION")
 abstract class BaseFragment<V : BaseContractor.View, P : BaseContractor.Presenter<V>> :
         BaseContractor.View, Fragment() {
+
     @Inject
     protected lateinit var presenter: P
 

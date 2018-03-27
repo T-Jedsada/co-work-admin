@@ -13,8 +13,10 @@ class MainPresenter @Inject constructor(private val request: Request) : BasePres
         , BaseSubScribe.Response<ResponseDataLogin> {
 
     override fun success(t: ResponseDataLogin) {
-        t.data?.let { getView()?.successLogin(it) }
-
+        when (t.noticeMessage) {
+            "true" -> t.data?.let { getView()?.successLogin(it) }
+            "false" -> getView()?.onError(R.string.txt_api_error)
+        }
     }
 
     override fun validateForm(email: String, password: String) {
@@ -29,5 +31,5 @@ class MainPresenter @Inject constructor(private val request: Request) : BasePres
     }
 
     override fun callApi(email: String, password: String) =
-        request.requestApiVerifyLogin(email, password, this)
+            request.requestApiVerifyLogin(email, password, this)
 }

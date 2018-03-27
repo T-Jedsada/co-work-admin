@@ -10,10 +10,10 @@ import retrofit2.http.POST
 
 interface BaseService {
 
-    //todo must be response something wait for update and add real path
     @FormUrlEncoded
     @POST("admin-login")
-    fun verifyLogin(@Field("email") email: String, @Field("password") password: String): Observable<Response<ResponseDataLogin>>
+    fun verifyLogin(@Field("email") email: String, @Field("password") password: String)
+            : Observable<Response<ResponseDataLogin>>
 
     @GET("admin/co-work-list/")
     fun requestCoWorkList(): Observable<Response<ListCoWork>>
@@ -34,9 +34,7 @@ interface BaseService {
     @POST("admin/judge-comment/")
     fun sendJudgementComment(@Field("id") commentId: String): Observable<Response<ResponseJudgeComment>>
 
-    //TODO onCallDetailCoWork
     @FormUrlEncoded
     @POST("detail-cowork")
-    fun requestDetailCoWork(@Field("id") id: String?
-    ): Observable<Response<ResponseDetail>>
+    fun requestDetailCoWork(@Field("id") id: String?): Observable<Response<ResponseDetail>>
 }

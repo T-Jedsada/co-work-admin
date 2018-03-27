@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.item_comment.view.*
 
 class CommentAdapter(private var something: List<CommentData>, private var view: CommentContact.View)
     : RecyclerView.Adapter<CommentHolder>() {
+
     override fun getItemViewType(position: Int): Int = R.layout.item_comment
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentHolder = CommentHolder(LayoutInflater.from(parent.context).inflate(viewType, parent, false))
@@ -20,7 +21,7 @@ class CommentAdapter(private var something: List<CommentData>, private var view:
     override fun onBindViewHolder(holder: CommentHolder, position: Int) {
         holder.onBind(something[position])
         holder.itemView.btnDelete.setOnClickListener {
-            view.onCommentDelete(something[position].id)
+            view.onCommentDelete(something[position].id.toString())
         }
     }
 

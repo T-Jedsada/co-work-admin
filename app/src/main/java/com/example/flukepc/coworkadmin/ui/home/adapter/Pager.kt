@@ -8,6 +8,7 @@ import com.example.flukepc.coworkadmin.ui.home.approve.ApproveFragment
 import com.example.flukepc.coworkadmin.ui.home.comment.CommentFragment
 
 class Pager(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+
     override fun getItem(position: Int): Fragment = when (position) {
         0 -> ApproveFragment()
         else -> CommentFragment()

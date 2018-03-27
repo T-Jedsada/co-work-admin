@@ -6,6 +6,7 @@ import com.example.flukepc.coworkadmin.di.ApplicationComponent
 
 @SuppressLint("Registered")
 class ThemeActivity : BaseActivity<ThemeContact.View , ThemePresenter>(){
+
     override fun isDialogConfirm() {}
 
     override fun logIn(email: String?) {}

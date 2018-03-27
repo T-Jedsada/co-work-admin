@@ -8,14 +8,6 @@ import io.reactivex.schedulers.Schedulers
 
 open class Request(private val api: BaseService) {
 
-    interface CommentListener {
-        fun onDeleteCommentSuccess(callBack: ResponseJudgeComment)
-    }
-
-    interface JudgementCoWork {
-        fun onActionSuccess(callback: ResponseJudgeComment?)
-    }
-
     private fun verifyLoginWithApi(email: String, password: String) = api.verifyLogin(email, password)
     private fun selectListCoWork() = api.requestCoWorkList()
     private fun selectDetail(id: String) = api.requestDetailCoWork(id)
@@ -23,6 +15,14 @@ open class Request(private val api: BaseService) {
     private fun deleteComment(id: String) = api.sendJudgementComment(id)
     private fun selectConfirmReject(id: String) = api.sendToConfirmReject(id)
     private fun selectConfirmApprove(id: String) = api.sendToConfirmApprove(id)
+
+    interface CommentListener {
+        fun onDeleteCommentSuccess(callBack: ResponseJudgeComment)
+    }
+
+    interface JudgementCoWork {
+        fun onActionSuccess(callback: ResponseJudgeComment?)
+    }
 
     fun requestApiVerifyLogin(email: String, password: String, callback: BaseSubScribe.Response<ResponseDataLogin>) {
         verifyLoginWithApi(email, password).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())

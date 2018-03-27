@@ -10,6 +10,7 @@ import com.example.flukepc.coworkadmin.ui.home.comment.adapter.CommentAdapter
 import kotlinx.android.synthetic.main.fragment_list_theme.*
 
 class CommentFragment : BaseFragment<CommentContact.View, CommentPresenter>(), CommentContact.View {
+
     private val approveAdapter: CommentAdapter by lazy { CommentAdapter(arrayListOf()) }
 
     override fun isDialogConfirm(id: String?, option: String?) {}

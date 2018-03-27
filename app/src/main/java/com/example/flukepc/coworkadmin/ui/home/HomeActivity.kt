@@ -1,36 +1,29 @@
 package com.example.flukepc.coworkadmin.ui.home
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.content.SharedPreferences
 import com.example.flukepc.coworkadmin.R
 import com.example.flukepc.coworkadmin.base.BaseActivity
 import com.example.flukepc.coworkadmin.di.ApplicationComponent
 import com.example.flukepc.coworkadmin.ui.home.adapter.Pager
-import com.example.flukepc.coworkadmin.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_home.*
-import javax.inject.Inject
 
 @SuppressLint("CommitPrefEdits")
 class HomeActivity : BaseActivity<HomeContact.View, HomePresenter>() {
 
-    override fun isDialogConfirm() {}
+    private var pager: Pager? = null
 
-    @Inject
-    lateinit var sharedPreferences: SharedPreferences
-
-    private val session: SharedPreferences.Editor? by lazy { sharedPreferences.edit() }
+    override fun isDialogConfirm() {
+        logOut()
+        finish()
+    }
 
     override fun logIn(email: String?) {}
 
     override fun logOut() {
-        session?.clear()
-        session?.putBoolean(MainActivity.KEY_CHECK_LOGIN, false)
+        session.logOut()
     }
 
     override fun checkSession() {}
-
-    private var pager: Pager? = null
 
     override fun layoutContentView(): Int = R.layout.activity_home
 
@@ -43,8 +36,7 @@ class HomeActivity : BaseActivity<HomeContact.View, HomePresenter>() {
     }
 
     override fun onBackPressed() {
-        logOut()
-        startActivity(Intent(this, MainActivity::class.java))
+        showDialog(getString(R.string.txt_confirm_logout))
     }
 
     companion object {
