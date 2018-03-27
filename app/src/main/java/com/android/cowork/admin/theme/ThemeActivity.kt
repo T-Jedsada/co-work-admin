@@ -5,7 +5,8 @@ import com.android.cowork.admin.base.BaseActivity
 import com.android.cowork.admin.di.ApplicationComponent
 
 @SuppressLint("Registered")
-class ThemeActivity : BaseActivity<ThemeContact.View , ThemePresenter>(){
+class ThemeActivity : BaseActivity<ThemeContact.View , ThemePresenter>(), ThemeContact.View{
+    override fun onError(message: Int) {}
 
     override fun isDialogConfirm() {}
 

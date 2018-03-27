@@ -6,5 +6,7 @@ class ThemeContact {
 
     interface Presenter : BaseContractor.Presenter<View>
 
-    interface View : BaseContractor.View
+    interface View : BaseContractor.View {
+        fun onError(message: Int)
+    }
 }

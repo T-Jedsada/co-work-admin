@@ -10,8 +10,8 @@ import com.android.cowork.admin.ui.comment.adapter.CommentAdapter
 import kotlinx.android.synthetic.main.activity_comment.*
 
 class CommentActivity : BaseActivity<CommentContact.View, CommentPresenter>(), CommentContact.View {
-    private val commentAdapter: CommentAdapter by lazy { CommentAdapter(arrayListOf(), this) }
 
+    private val commentAdapter: CommentAdapter by lazy { CommentAdapter(arrayListOf(), this) }
     private var coWorkId: String? = null
     private var commentId: String? = null
 
