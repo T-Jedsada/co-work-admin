@@ -27,14 +27,11 @@ android {
     }
 }
 
-
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:27.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
@@ -56,6 +53,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
-    compile 'org.mockito:mockito-inline:2.7.22'
+    implementation 'org.mockito:mockito-inline:2.7.22'
     androidTestCompile 'org.mockito:mockito-android:2.7.22'
+
+    //cardView
+    implementation 'com.android.support:cardview-v7:27.1.0'
 }

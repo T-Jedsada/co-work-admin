@@ -15,4 +15,20 @@
     <string name="status_field">status :</string>
     <string name="field_book">Book :</string>
     <string name="field_comment">Comment :</string>
+    <string name="txt_poster_desc">poster</string>
+    <string name="txt_session">email</string>
+    <string name="txt_warn">คำเตือน</string>
+    <string name="txt_pls_wait">กรุณารอซักครู่</string>
+    <string name="txt_confirm_dialog">ใช่</string>
+    <string name="txt_reject_dialog">ยกเลิก</string>
+    <string name="txt_interupt">เกิดข้อผิดพลาดบางประการ</string>
+    <string name="txt_for_sure">ต้องการดำเนินการต่อหรือไม่</string>
+    <string name="txt_address">address:</string>
+    <string name="txt_status">status:</string>
+    <string name="txt_price">price:</string>
+    <string name="txt_content">content:</string>
+    <string name="txt_bath">Bath</string>
+    <string name="txt_api_error">Failed to connect with api.</string>
+    <string name="txt_confirm_logout">คุณต้องการออกจากระบบไช่หรือไม่</string>
+    <string name="txt_success">Success!!</string>
 </resources>
