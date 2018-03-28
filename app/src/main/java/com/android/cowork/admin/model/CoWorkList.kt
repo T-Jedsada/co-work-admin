@@ -43,4 +43,4 @@ data class CoWorkDetail(@SerializedName("_id") val id: String? = null,
     }
 }
 
-data class ListCoWork(@SerializedName("data") var results: List<CoWorkDetail>? = null)
+data class ListCoWork(@SerializedName("success")var isSuccess: Boolean, @SerializedName("data") var results: List<CoWorkDetail>? = null)

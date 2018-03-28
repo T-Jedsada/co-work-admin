@@ -29,7 +29,8 @@ class CommentPresenter @Inject constructor(private val request: Request) : BaseP
     override fun callCommentApi(coWorkingId: String) = request.requestCommentList(coWorkingId, this)
 
     override fun success(t: CommentList) {
-        getView()?.onCallCommentListSuccess(t)
+        t.noticeMessage.equals("true").let { getView()?.onCallCommentListSuccess(t) }
+                ?:getView()?.onError(R.string.txt_api_error)
     }
 
     companion object {

@@ -6,6 +6,7 @@ import com.android.cowork.admin.base.BaseSubScribe
 import com.android.cowork.admin.model.ListCoWork
 import com.android.cowork.admin.model.ResponseJudgeComment
 import com.android.cowork.admin.request.Request
+import com.android.cowork.admin.showLog
 import javax.inject.Inject
 
 class ApprovePresenter @Inject constructor(private val request: Request) : BasePresenter<ApproveContact.View>()
@@ -31,7 +32,7 @@ class ApprovePresenter @Inject constructor(private val request: Request) : BaseP
     }
 
     override fun success(t: ListCoWork) {
-        getView()?.successCallback(t)
+        (t.isSuccess).let { getView()?.successCallback(t) }?:getView()?.onError(R.string.txt_api_error)
     }
 
     override fun callListCoWorkApi() {
