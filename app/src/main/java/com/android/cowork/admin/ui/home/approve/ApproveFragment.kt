@@ -6,6 +6,7 @@ import android.widget.Toast
 import com.android.cowork.admin.R
 import com.android.cowork.admin.base.BaseFragment
 import com.android.cowork.admin.di.ApplicationComponent
+import com.android.cowork.admin.getToast
 import com.android.cowork.admin.model.ListCoWork
 import com.android.cowork.admin.ui.home.approve.adapter.ApproveAdapter
 import kotlinx.android.synthetic.main.fragment_list_theme.*
@@ -16,6 +17,7 @@ class ApproveFragment : BaseFragment<ApproveContact.View, ApprovePresenter>(), A
     private val approveAdapter: ApproveAdapter by lazy { ApproveAdapter(arrayListOf(), this) }
 
     override fun onError(message: Int) {
+        context?.getToast(getString(message))
         Toast.makeText(context, getString(message), Toast.LENGTH_SHORT).show()
     }
 

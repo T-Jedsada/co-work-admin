@@ -7,6 +7,7 @@ import android.widget.Toast
 import com.android.cowork.admin.R
 import com.android.cowork.admin.base.BaseActivity
 import com.android.cowork.admin.di.ApplicationComponent
+import com.android.cowork.admin.getToast
 import com.android.cowork.admin.model.ResponseDataLogin
 import com.android.cowork.admin.ui.home.HomeActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -34,7 +35,7 @@ class MainActivity : BaseActivity<MainContractor.View, MainPresenter>(), MainCon
 
     override fun onError(message: Int) {
         loadingSuccess()
-        Toast.makeText(applicationContext, applicationContext.getString(message), Toast.LENGTH_LONG).show()
+        this.getToast(getString(message))
     }
 
     override fun successLogin(data: ResponseDataLogin) {

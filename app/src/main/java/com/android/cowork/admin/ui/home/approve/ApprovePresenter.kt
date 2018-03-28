@@ -11,6 +11,10 @@ import javax.inject.Inject
 class ApprovePresenter @Inject constructor(private val request: Request) : BasePresenter<ApproveContact.View>()
         , ApproveContact.Presenter, BaseSubScribe.Response<ListCoWork>, Request.JudgementCoWork {
 
+    override fun onHttpError(message: Int) {
+        getView()?.onError(message)
+    }
+
     override fun onActionSuccess(callback: ResponseJudgeComment?) {
         when (callback?.noticeMessage) {
             TRUE -> getView()?.isJudgeSuccess(callback.data?.message)

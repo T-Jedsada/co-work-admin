@@ -11,6 +11,10 @@ import javax.inject.Inject
 class CommentPresenter @Inject constructor(private val request: Request) : BasePresenter<CommentContact.View>()
         , CommentContact.Presenter, BaseSubScribe.Response<CommentList>, Request.CommentListener {
 
+    override fun onHttpError(message: Int) {
+        getView()?.onError(message)
+    }
+
     override fun onDeleteCommentSuccess(callBack: ResponseJudgeComment) {
         when (callBack.noticeMessage) {
             TRUE -> callBack.data?.let { getView()?.onDeleteSuccess(it.message) }

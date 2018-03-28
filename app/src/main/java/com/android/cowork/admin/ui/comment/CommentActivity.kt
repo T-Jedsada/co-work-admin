@@ -5,6 +5,7 @@ import android.widget.Toast
 import com.android.cowork.admin.R
 import com.android.cowork.admin.base.BaseActivity
 import com.android.cowork.admin.di.ApplicationComponent
+import com.android.cowork.admin.getToast
 import com.android.cowork.admin.model.CommentList
 import com.android.cowork.admin.ui.comment.adapter.CommentAdapter
 import kotlinx.android.synthetic.main.activity_comment.*
@@ -16,7 +17,7 @@ class CommentActivity : BaseActivity<CommentContact.View, CommentPresenter>(), C
     private var commentId: String? = null
 
     override fun onError(message: Int) {
-        Toast.makeText(this, getString(message), Toast.LENGTH_SHORT).show()
+        this.getToast(getString(message))
     }
 
     override fun isDialogConfirm() {
@@ -28,7 +29,7 @@ class CommentActivity : BaseActivity<CommentContact.View, CommentPresenter>(), C
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         coWorkId?.let {
             presenter.callCommentApi(it)
-        } ?: Toast.makeText(this, getString(R.string.txt_interupt), Toast.LENGTH_SHORT).show()
+        } ?: Toast.makeText(this, getString(R.string.txt_interrupt), Toast.LENGTH_SHORT).show()
     }
 
     override fun onCommentDelete(id: String?) {

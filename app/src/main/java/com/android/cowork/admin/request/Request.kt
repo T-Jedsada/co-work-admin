@@ -18,10 +18,12 @@ open class Request(private val api: BaseService) {
 
     interface CommentListener {
         fun onDeleteCommentSuccess(callBack: ResponseJudgeComment)
+        fun onHttpError(message: Int)
     }
 
     interface JudgementCoWork {
         fun onActionSuccess(callback: ResponseJudgeComment?)
+        fun onHttpError(message: Int)
     }
 
     fun requestApiVerifyLogin(email: String, password: String, callback: BaseSubScribe.Response<ResponseDataLogin>) {
@@ -47,6 +49,10 @@ open class Request(private val api: BaseService) {
     fun requestDeleteComment(id: String, callback: CommentListener) {
         deleteComment(id).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(BaseSubScribe(object : BaseSubScribe.Response<ResponseJudgeComment> {
+                    override fun onHttpError(message: Int) {
+                        callback.onHttpError(message)
+                    }
+
                     override fun success(t: ResponseJudgeComment) {
                         callback.onDeleteCommentSuccess(t)
                     }
@@ -56,6 +62,10 @@ open class Request(private val api: BaseService) {
     fun requestConfirmReject(id: String, callback: JudgementCoWork) {
         selectConfirmReject(id).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(BaseSubScribe(object : BaseSubScribe.Response<ResponseJudgeComment> {
+                    override fun onHttpError(message: Int) {
+                        callback.onHttpError(message)
+                    }
+
                     override fun success(t: ResponseJudgeComment) {
                         callback.onActionSuccess(t)
                     }
@@ -65,6 +75,10 @@ open class Request(private val api: BaseService) {
     fun requestConfirmApprove(id: String, callback: JudgementCoWork) {
         selectConfirmApprove(id).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(BaseSubScribe(object : BaseSubScribe.Response<ResponseJudgeComment> {
+                    override fun onHttpError(message: Int) {
+                        callback.onHttpError(message)
+                    }
+
                     override fun success(t: ResponseJudgeComment) {
                         callback.onActionSuccess(t)
                     }
