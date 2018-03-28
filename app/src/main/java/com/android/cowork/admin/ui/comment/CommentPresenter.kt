@@ -4,7 +4,7 @@ import com.android.cowork.admin.R
 import com.android.cowork.admin.base.BasePresenter
 import com.android.cowork.admin.base.BaseSubScribe
 import com.android.cowork.admin.model.CommentList
-import com.android.cowork.admin.model.ResponseJudgeComment
+import com.android.cowork.admin.model.JudgeResponse
 import com.android.cowork.admin.request.Request
 import javax.inject.Inject
 
@@ -15,7 +15,7 @@ class CommentPresenter @Inject constructor(private val request: Request) : BaseP
         getView()?.onError(message)
     }
 
-    override fun onDeleteCommentSuccess(callBack: ResponseJudgeComment) {
+    override fun onDeleteCommentSuccess(callBack: JudgeResponse) {
         when (callBack.noticeMessage) {
             TRUE -> callBack.data?.let { getView()?.onDeleteSuccess(it.message) }
             FALSE -> getView()?.onError(R.string.txt_api_error)

@@ -4,9 +4,8 @@ import com.android.cowork.admin.R
 import com.android.cowork.admin.base.BasePresenter
 import com.android.cowork.admin.base.BaseSubScribe
 import com.android.cowork.admin.model.ListCoWork
-import com.android.cowork.admin.model.ResponseJudgeComment
+import com.android.cowork.admin.model.JudgeResponse
 import com.android.cowork.admin.request.Request
-import com.android.cowork.admin.showLog
 import javax.inject.Inject
 
 class ApprovePresenter @Inject constructor(private val request: Request) : BasePresenter<ApproveContact.View>()
@@ -16,7 +15,7 @@ class ApprovePresenter @Inject constructor(private val request: Request) : BaseP
         getView()?.onError(message)
     }
 
-    override fun onActionSuccess(callback: ResponseJudgeComment?) {
+    override fun onActionSuccess(callback: JudgeResponse?) {
         when (callback?.noticeMessage) {
             TRUE -> getView()?.isJudgeSuccess(callback.data?.message)
             FALSE -> getView()?.onError(R.string.txt_api_error)

@@ -17,12 +17,12 @@ open class Request(private val api: BaseService) {
     private fun selectConfirmApprove(id: String) = api.sendToConfirmApprove(id)
 
     interface CommentListener {
-        fun onDeleteCommentSuccess(callBack: ResponseJudgeComment)
+        fun onDeleteCommentSuccess(callBack: JudgeResponse)
         fun onHttpError(message: Int)
     }
 
     interface JudgementCoWork {
-        fun onActionSuccess(callback: ResponseJudgeComment?)
+        fun onActionSuccess(callback: JudgeResponse?)
         fun onHttpError(message: Int)
     }
 
@@ -48,12 +48,12 @@ open class Request(private val api: BaseService) {
 
     fun requestDeleteComment(id: String, callback: CommentListener) {
         deleteComment(id).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(BaseSubScribe(object : BaseSubScribe.Response<ResponseJudgeComment> {
+                .subscribe(BaseSubScribe(object : BaseSubScribe.Response<JudgeResponse> {
                     override fun onHttpError(message: Int) {
                         callback.onHttpError(message)
                     }
 
-                    override fun success(t: ResponseJudgeComment) {
+                    override fun success(t: JudgeResponse) {
                         callback.onDeleteCommentSuccess(t)
                     }
                 }))
@@ -61,12 +61,12 @@ open class Request(private val api: BaseService) {
 
     fun requestConfirmReject(id: String, callback: JudgementCoWork) {
         selectConfirmReject(id).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(BaseSubScribe(object : BaseSubScribe.Response<ResponseJudgeComment> {
+                .subscribe(BaseSubScribe(object : BaseSubScribe.Response<JudgeResponse> {
                     override fun onHttpError(message: Int) {
                         callback.onHttpError(message)
                     }
 
-                    override fun success(t: ResponseJudgeComment) {
+                    override fun success(t: JudgeResponse) {
                         callback.onActionSuccess(t)
                     }
                 }))
@@ -74,12 +74,12 @@ open class Request(private val api: BaseService) {
 
     fun requestConfirmApprove(id: String, callback: JudgementCoWork) {
         selectConfirmApprove(id).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(BaseSubScribe(object : BaseSubScribe.Response<ResponseJudgeComment> {
+                .subscribe(BaseSubScribe(object : BaseSubScribe.Response<JudgeResponse> {
                     override fun onHttpError(message: Int) {
                         callback.onHttpError(message)
                     }
 
-                    override fun success(t: ResponseJudgeComment) {
+                    override fun success(t: JudgeResponse) {
                         callback.onActionSuccess(t)
                     }
                 }))
