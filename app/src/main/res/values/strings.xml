@@ -34,4 +34,7 @@
     <string name="http_wrong_connect_401">เกิดข้อผิดพลาดบางประการกรุณาลองอีกครั้งภายหลัง, 401</string>
     <string name="http_wrong_connect_404">เกิดข้อผิดพลาดบางประการกรุณาลองอีกครั้งภายหลัง, 404</string>
     <string name="http_wrong_connect_500">เกิดข้อผิดพลาดบางประการกรุณาลองอีกครั้งภายหลัง, 500</string>
+    <string name="txt_empty_list">ไม่มีข้อมูล กรุณากลับหน้าหลัก</string>
+    <string name="txt_cant_do_anything">ไม่สามารถทำรายการได้</string>
+    <string name="txt_empty_list_activity">Empty List</string>
 </resources>

@@ -2,7 +2,6 @@ package com.android.cowork.admin.ui.home.approve
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
-import android.widget.Toast
 import com.android.cowork.admin.R
 import com.android.cowork.admin.base.BaseFragment
 import com.android.cowork.admin.di.ApplicationComponent
@@ -18,7 +17,7 @@ class ApproveFragment : BaseFragment<ApproveContact.View, ApprovePresenter>(), A
 
     override fun onError(message: Int) {
         context?.getToast(getString(message))
-        Toast.makeText(context, getString(message), Toast.LENGTH_SHORT).show()
+        loadingSuccess()
     }
 
     override fun isDialogConfirm(id: String?, option: String?) {
@@ -30,7 +29,10 @@ class ApproveFragment : BaseFragment<ApproveContact.View, ApprovePresenter>(), A
     }
 
     override fun isJudgeSuccess(message: String?) {
-        presenter.callListCoWorkApi()
+        message?.let {
+            context?.getToast(it)
+            presenter.callListCoWorkApi()
+        }
     }
 
     override fun successCallback(listCoWork: ListCoWork?) {

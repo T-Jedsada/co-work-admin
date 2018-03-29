@@ -19,7 +19,7 @@ class MainActivity : BaseActivity<MainContractor.View, MainPresenter>(), MainCon
     @Inject
     lateinit var sharedPreferences: SharedPreferences
 
-    override fun isDialogConfirm() {}
+    override fun isDialogConfirm(option: Int?) {}
 
     override fun layoutContentView(): Int = R.layout.activity_main
 

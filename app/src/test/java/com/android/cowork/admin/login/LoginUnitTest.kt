@@ -25,7 +25,6 @@ import java.util.concurrent.Executor
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-
 class LoginUnitTest {
 
     private val api = mock(BaseService::class.java)

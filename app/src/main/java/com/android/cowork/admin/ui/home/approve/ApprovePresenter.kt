@@ -18,7 +18,7 @@ class ApprovePresenter @Inject constructor(private val request: Request) : BaseP
     override fun onActionSuccess(callback: JudgeResponse?) {
         when (callback?.noticeMessage) {
             TRUE -> getView()?.isJudgeSuccess(callback.data?.message)
-            FALSE -> getView()?.onError(R.string.txt_api_error)
+            FALSE -> getView()?.onError(R.string.txt_cant_do_anything)
         }
     }
 

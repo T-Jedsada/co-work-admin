@@ -40,7 +40,7 @@ abstract class BaseActivity<V : BaseContractor.View, P : BaseContractor.Presente
 
     protected abstract fun logOut()
 
-    protected abstract fun isDialogConfirm()
+    protected abstract fun isDialogConfirm(option: Int?=null)
 
     @Suppress("UNCHECKED_CAST")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,12 +61,12 @@ abstract class BaseActivity<V : BaseContractor.View, P : BaseContractor.Presente
         progressDialog.dismiss()
     }
 
-    protected fun showDialog(message: String) {
+    protected fun showDialog(message: String, option: Int?=null) {
         AlertDialog.Builder(this)
                 .setMessage(message)
                 .setTitle(getString(R.string.txt_warn))
                 .setPositiveButton(getString(R.string.txt_confirm_dialog), { _, _ ->
-                    isDialogConfirm()
+                    isDialogConfirm(option)
                 }).setNegativeButton(getString(R.string.txt_reject_dialog), null).show()
     }
 }

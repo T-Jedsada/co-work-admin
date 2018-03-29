@@ -12,7 +12,7 @@ class HomeActivity : BaseActivity<HomeContact.View, HomePresenter>() {
 
     private var pager: Pager? = null
 
-    override fun isDialogConfirm() {
+    override fun isDialogConfirm(option: Int?) {
         logOut()
         finish()
     }
