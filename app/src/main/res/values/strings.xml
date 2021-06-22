@@ -21,7 +21,7 @@
     <string name="txt_pls_wait">กรุณารอซักครู่</string>
     <string name="txt_confirm_dialog">ใช่</string>
     <string name="txt_reject_dialog">ยกเลิก</string>
-    <string name="txt_interupt">เกิดข้อผิดพลาดบางประการ</string>
+    <string name="txt_interrupt">เกิดข้อผิดพลาดบางประการ</string>
     <string name="txt_for_sure">ต้องการดำเนินการต่อหรือไม่</string>
     <string name="txt_address">address:</string>
     <string name="txt_status">status:</string>
@@ -31,4 +31,10 @@
     <string name="txt_api_error">Failed to connect with api.</string>
     <string name="txt_confirm_logout">คุณต้องการออกจากระบบไช่หรือไม่</string>
     <string name="txt_success">Success!!</string>
+    <string name="http_wrong_connect_401">เกิดข้อผิดพลาดบางประการกรุณาลองอีกครั้งภายหลัง, 401</string>
+    <string name="http_wrong_connect_404">เกิดข้อผิดพลาดบางประการกรุณาลองอีกครั้งภายหลัง, 404</string>
+    <string name="http_wrong_connect_500">เกิดข้อผิดพลาดบางประการกรุณาลองอีกครั้งภายหลัง, 500</string>
+    <string name="txt_empty_list">ไม่มีข้อมูล กรุณากลับหน้าหลัก</string>
+    <string name="txt_cant_do_anything">ไม่สามารถทำรายการได้</string>
+    <string name="txt_empty_list_activity">Empty List</string>
 </resources>

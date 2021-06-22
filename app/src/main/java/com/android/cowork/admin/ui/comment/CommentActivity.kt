@@ -1,12 +1,16 @@
 package com.android.cowork.admin.ui.comment
 
+import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import android.widget.Toast
 import com.android.cowork.admin.R
 import com.android.cowork.admin.base.BaseActivity
 import com.android.cowork.admin.di.ApplicationComponent
+import com.android.cowork.admin.getToast
 import com.android.cowork.admin.model.CommentList
 import com.android.cowork.admin.ui.comment.adapter.CommentAdapter
+import com.android.cowork.admin.ui.home.HomeActivity
 import kotlinx.android.synthetic.main.activity_comment.*
 
 class CommentActivity : BaseActivity<CommentContact.View, CommentPresenter>(), CommentContact.View {
@@ -16,24 +20,31 @@ class CommentActivity : BaseActivity<CommentContact.View, CommentPresenter>(), C
     private var commentId: String? = null
 
     override fun onError(message: Int) {
-        Toast.makeText(this, getString(message), Toast.LENGTH_SHORT).show()
+        this.getToast(getString(message))
     }
 
-    override fun isDialogConfirm() {
-        loadDialog()
-        presenter.isDeleteComment(commentId)
+    override fun isDialogConfirm(option: Int?) {
+        when (option) {
+            OPTION_KEY_DELETE_COMMENT -> {
+                loadDialog()
+                presenter.isDeleteComment(commentId)
+            }
+            OPTION_KEY_EMPTY_LIST -> {
+                startActivity(Intent(this, HomeActivity::class.java))
+            }
+        }
     }
 
     override fun onDeleteSuccess(message: String?) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         coWorkId?.let {
             presenter.callCommentApi(it)
-        } ?: Toast.makeText(this, getString(R.string.txt_interupt), Toast.LENGTH_SHORT).show()
+        } ?: Toast.makeText(this, getString(R.string.txt_interrupt), Toast.LENGTH_SHORT).show()
     }
 
     override fun onCommentDelete(id: String?) {
         commentId = id
-        showDialog(getString(R.string.txt_for_sure))
+        showDialog(getString(R.string.txt_for_sure), OPTION_KEY_DELETE_COMMENT)
     }
 
     override fun logIn(email: String?) {}
@@ -44,7 +55,13 @@ class CommentActivity : BaseActivity<CommentContact.View, CommentPresenter>(), C
 
     override fun onCallCommentListSuccess(listComment: CommentList?) {
         loadingSuccess()
-        commentAdapter.setItem(listComment?.data)
+        when (listComment?.data?.size == 0) {
+            false -> commentAdapter.setItem(listComment?.data)
+            true -> {
+                tvEmptyList.visibility = View.VISIBLE
+                showDialog(getString(R.string.txt_empty_list), OPTION_KEY_EMPTY_LIST)
+            }
+        }
     }
 
     override fun layoutContentView(): Int = R.layout.activity_comment
@@ -61,5 +78,10 @@ class CommentActivity : BaseActivity<CommentContact.View, CommentPresenter>(), C
             loadDialog()
             presenter.callCommentApi(it)
         }
+    }
+
+    companion object {
+        const val OPTION_KEY_EMPTY_LIST = 0
+        const val OPTION_KEY_DELETE_COMMENT = 1
     }
 }

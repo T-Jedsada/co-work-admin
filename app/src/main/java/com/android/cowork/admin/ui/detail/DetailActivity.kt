@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : BaseActivity<DetailContact.View, DetailPresenter>(), DetailContact.View {
 
-    override fun isDialogConfirm() {}
+    override fun isDialogConfirm(option: Int?) {}
 
     override fun logOut() {}
 

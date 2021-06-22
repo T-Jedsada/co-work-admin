@@ -9,6 +9,9 @@ import javax.inject.Inject
 
 class CommentPresenter @Inject constructor(private val request: Request) : BasePresenter<CommentContact.View>(),
         CommentContact.Presenter, BaseSubScribe.Response<ListCoWork> {
+    override fun onHttpError(message: Int) {
+        getView()?.onError(message)
+    }
 
     override fun success(t: ListCoWork) {
         when (t.results?.size != 0) {

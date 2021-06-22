@@ -24,15 +24,15 @@ interface BaseService {
 
     @FormUrlEncoded
     @POST("admin/approve/")
-    fun sendToConfirmApprove(@Field("co_work_id") coWorkingId: String): Observable<Response<ResponseJudgeComment>>
+    fun sendToConfirmApprove(@Field("co_work_id") coWorkingId: String): Observable<Response<JudgeResponse>>
 
     @FormUrlEncoded
     @POST("admin/judgement-cowork/")
-    fun sendToConfirmReject(@Field("co_work_id") coWorkingId: String): Observable<Response<ResponseJudgeComment>>
+    fun sendToConfirmReject(@Field("co_work_id") coWorkingId: String): Observable<Response<JudgeResponse>>
 
     @FormUrlEncoded
     @POST("admin/judge-comment/")
-    fun sendJudgementComment(@Field("id") commentId: String): Observable<Response<ResponseJudgeComment>>
+    fun sendJudgementComment(@Field("id") commentId: String): Observable<Response<JudgeResponse>>
 
     @FormUrlEncoded
     @POST("detail-cowork")

@@ -8,6 +8,7 @@ import javax.inject.Inject
 
 class DetailPresenter @Inject constructor(private val request: Request) : BasePresenter<DetailContact.View>(),
         DetailContact.Presenter, BaseSubScribe.Response<ResponseDetail> {
+    override fun onHttpError(message: Int) {}
 
     override fun success(t: ResponseDetail) {
         t.data?.let { getView()?.successDetail(it) }

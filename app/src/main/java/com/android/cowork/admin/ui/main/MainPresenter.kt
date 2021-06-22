@@ -12,6 +12,10 @@ class MainPresenter @Inject constructor(private val request: Request) : BasePres
         , MainContractor.Presenter
         , BaseSubScribe.Response<ResponseDataLogin> {
 
+    override fun onHttpError(message: Int) {
+        getView()?.onError(message)
+    }
+
     override fun success(t: ResponseDataLogin) {
         when (t.noticeMessage) {
             TRUE -> t.let { getView()?.successLogin(it) }

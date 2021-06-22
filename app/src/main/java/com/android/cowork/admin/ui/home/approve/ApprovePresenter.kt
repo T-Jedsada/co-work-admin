@@ -4,17 +4,21 @@ import com.android.cowork.admin.R
 import com.android.cowork.admin.base.BasePresenter
 import com.android.cowork.admin.base.BaseSubScribe
 import com.android.cowork.admin.model.ListCoWork
-import com.android.cowork.admin.model.ResponseJudgeComment
+import com.android.cowork.admin.model.JudgeResponse
 import com.android.cowork.admin.request.Request
 import javax.inject.Inject
 
 class ApprovePresenter @Inject constructor(private val request: Request) : BasePresenter<ApproveContact.View>()
         , ApproveContact.Presenter, BaseSubScribe.Response<ListCoWork>, Request.JudgementCoWork {
 
-    override fun onActionSuccess(callback: ResponseJudgeComment?) {
+    override fun onHttpError(message: Int) {
+        getView()?.onError(message)
+    }
+
+    override fun onActionSuccess(callback: JudgeResponse?) {
         when (callback?.noticeMessage) {
             TRUE -> getView()?.isJudgeSuccess(callback.data?.message)
-            FALSE -> getView()?.onError(R.string.txt_api_error)
+            FALSE -> getView()?.onError(R.string.txt_cant_do_anything)
         }
     }
 
@@ -27,7 +31,7 @@ class ApprovePresenter @Inject constructor(private val request: Request) : BaseP
     }
 
     override fun success(t: ListCoWork) {
-        getView()?.successCallback(t)
+        (t.isSuccess).let { getView()?.successCallback(t) }?:getView()?.onError(R.string.txt_api_error)
     }
 
     override fun callListCoWorkApi() {
